@@ -36,23 +36,25 @@
                                     @endif
                                 </div>
                                 <div class="form-group row">
-                                    <button class="btn btn-pink btn-block" type="submit">{{ __('Login') }}
+                                    <button class="btn btn-pink btn-block mb-3" type="submit">{{ __('Login') }}
                                     </button>
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+
                                 </div>
                             </form>
                         </div>
                         <div class="mb-2 text-white">
-                            <p><small >Dont have an account yet? <a href="signup.blade.php" class="text-pink">Create
-                                                                                                              account</a>
-                                    <br>
-                                       Forgot your username or password? <a href="forgotpass.blade.php"
-                                                                            class="text-pink">Recover
-                                                                                              account</a></small></p>
+                            @if (Route::has('register'))
+                                <p><small >Dont have an account yet? <a href="{{ route('register') }}"
+                                                                        class="text-pink">Create account</a></small></p>
+                            @endif
+                                @if (Route::has('password.request'))
+                                    <p><small> Forgot your username or password?
+                                            <a href="{{ route('password.request') }}" class="text-pink">Recover
+                                                                                                        account</a>
+                                        </small>
+                                    </p>
+                                    @endif
+
                         </div>
                     </div>
                 </div>

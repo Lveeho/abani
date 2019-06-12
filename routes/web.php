@@ -23,7 +23,8 @@ Route::get('/shoppingcart','FrontController@shoppingcart');
 Route::get('/wishlist','FrontController@wishlist');
 
 Auth::routes();
-Route::resource('/admin/users','UserController');
-
+Route::group(['middleware'=>'admin'],function() {
+    Route::resource('/admin/users', 'UserController');
+});
 
 

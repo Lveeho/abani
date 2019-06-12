@@ -16,7 +16,7 @@ class CreateCitiesTable extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->bigIncrements('id')->index();
             $table->integer('region_id')->index();
-            $table->string('name');
+            $table->string('city');
             $table->string('postalcode');
             $table->softDeletes();
             $table->timestamps();

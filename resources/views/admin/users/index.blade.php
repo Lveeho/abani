@@ -23,12 +23,12 @@
 
                         {{--$user->addresses->count()--}}
                         <td>@foreach($user->addresses as $address)
-                            {{$address->city->region->country->name}}
-                            {{$address->city->region->name}}
+                            {{$address->city->region->country->country}}
+                            {{$address->city->region->region}}
                             @if(!empty($address->city->region->code))
                                 {{$address->city->region->code}}
                             @endif
-                            {{$address->city->name}}
+                            {{$address->city->city}}
                             {{$address->city->postalcode}}
                             {{$address->street}}
                             {{$address->streetnumber}}

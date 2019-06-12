@@ -47,10 +47,14 @@ class User extends Authenticatable
     }
 
     public function isAdmin(){
-        if(Auth::user()->roles->where('name', 'admin')->First() == true){
-            return true;
-        }else{
-            return false;
+        foreach ($this->roles()->get() as $role)
+        {
+            if ($role->name == 'admin')
+            {
+                return true;
+            }
         }
+
+        return false;
     }
 }

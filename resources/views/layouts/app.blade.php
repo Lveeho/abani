@@ -60,9 +60,7 @@
                         <a href="{{ route('login') }}" class="btn btn-nav ml-xl-5">
                             <i class="fas fa-cog"></i>
                         </a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
+
                     @endauth
                 </div>
             @endif

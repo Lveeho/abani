@@ -14,7 +14,7 @@ class CountriesTableSeeder extends Seeder
     {
         //
         DB::table('countries')->insert([
-            'name'=>'Belgium'
+            'country'=>'Belgium'
         ]);
     }
 }
