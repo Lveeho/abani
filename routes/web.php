@@ -22,6 +22,8 @@ Route::get('/eyes','FrontController@eyes');
 Route::get('/shoppingcart','FrontController@shoppingcart');
 Route::get('/wishlist','FrontController@wishlist');
 
+
+
 Auth::routes();
 Route::group(['middleware'=>'admin'],function() {
     Route::resource('/admin/users', 'UserController');

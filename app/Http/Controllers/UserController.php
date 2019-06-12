@@ -104,7 +104,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        //dd($request->all());
 
 
         if(trim($request->password)==''){ /*objectmanier*/
@@ -130,12 +130,60 @@ class UserController extends Controller
                 $address->streetnumber=$request->streetnumber[$i];
                 $address->boxnumber=$request->boxnumber[$i];
                 $address->update();
-                $city=City::findOrFail($address->city_id);
+            }
+        }
+        if(!empty($request->city_ids)) {
+            $p = -1;
+            foreach ($request->city_ids as $city_id) {
+                $p++;
+                $oldCity = City::findOrFail($city_id);
+                $cityAlreadyExist = City::where('city', $request->city[$p])->first();
+                $allAlreadyExist=City::where('city',$request->city[$p])
+                    ->where('postalcode',$request->postalcode[$p])
+                    ->where('region_id',$request->region_ids[$p])
+                    ->first();
+
+                if ($oldCity->city != $request->city[$p] and empty($cityAlreadyExist)) {
+                    $city = new City();
+                    $city->city = $request->city[$p];
+                    $city->postalcode = $request->postalcode[$p];
+                    $city->region_id = $oldCity->region_id;
+                    $city->save();
+                    $address = Address::where('id', $request->address_ids[$p])->first();
+                    $address->city_id = $city->id;
+                    $address->update();
+                } elseif
+                ($oldCity->city === $request->city[$p]
+                    and $cityAlreadyExist->region_id != $request->region_ids[$p]
+                    or $cityAlreadyExist->postalcode != $request->postalcode[$p])
+                {
+                    $city = new City();
+                    $city->city = $request->city[$p];
+                    $city->postalcode = $request->postalcode[$p];
+                    $city->region_id = $oldCity->region_id;
+                    $city->save();
+                    $address = Address::where('id', $request->address_ids[$p])->first();
+                    $address->city_id = $city->id;
+                    $address->update();
+                } elseif(!empty($allAlreadyExist))
+                {
+                    $address = Address::where('id', $request->address_ids[$p])->first();
+                    $address->city_id=$allAlreadyExist->id;
+                    $address->update();
+                };
+                $addressesInUse=Address::select('city_id')->get();
+                City::whereNotIn('id',$addressesInUse)->delete();
+
+                /*$region=Region::where('id',$request->region_ids[$p])->first();
+                if($region->region!=$request->region[$p]){
+
+                }*/
+
 
 
             }
-
         }
+
 
 
 

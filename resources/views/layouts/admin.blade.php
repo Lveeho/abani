@@ -96,7 +96,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('users.index')}}">
                                     <i class="fas fa-user-friends mr-3"></i>
-                                    <span class="menu-title">All gebruikers</span>
+                                    <span class="menu-title">Alle gebruikers</span>
                                 </a>
                             </li>
                             <li class="nav-item">
