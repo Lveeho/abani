@@ -13,8 +13,7 @@ class Country extends Model
     protected $fillable = [
         'name'
     ];
-    public function regions(){
-        return $this->hasMany('App\Regions');
+    public function users(){
+        return $this->belongstomany('App\User');
     }
-
 }

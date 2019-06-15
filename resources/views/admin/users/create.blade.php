@@ -27,7 +27,7 @@
                 {!! Form::select('role_id',[''=>'Choose options'] + $roles,null,['class'=>'form-control','required']) !!}
             </div>
         </div>
-        <div class="col-lg-6">
+        {{--<div class="col-lg-6">
             <div class="form-group mt-4 ">
                 {!! Form::label('country','Land:') !!}
                 {!! Form::text('country',null,['class'=>'form-control','required'])
@@ -58,7 +58,7 @@
                 {!! Form::label('boxnumber','Busnr:') !!}
                 {!! Form::text('boxnumber',null,['class'=>'form-control','not-required']) !!}
             </div>
-        </div>
+        </div>--}}
         <div class="form-group">
             {!!Form::submit('Opslaan',
             ['class'=>'btn btn-primary'])!!}

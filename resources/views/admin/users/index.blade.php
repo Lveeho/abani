@@ -21,26 +21,34 @@
                         <td>{{$user->lastname}}</td>
                         <td>{{$user->email}}</td>
 
-                        {{--$user->addresses->count()--}}
-                        <td>@foreach($user->addresses as $address)
-                            {{$address->city->region->country->country}}
-                            {{$address->city->region->region}}
-                            @if(!empty($address->city->region->code))
-                                {{$address->city->region->code}}
-                            @endif
-                            {{$address->city->city}}
-                            {{$address->city->postalcode}}
-                            {{$address->street}}
-                            {{$address->streetnumber}}
-                                @if(!empty($address->boxnumber))
-                                    {{$address->boxnumber}}
-                                @endif
-                                <br>
-                            @endforeach
+
+                        <td>
+                            @foreach($user->countries as $country)
+                                @foreach($user->regions as $region)
+                                    @foreach($user->cities as $city)
+                                        @foreach($user->addresses as $address)
+                                            @if($country->getOriginal('pivot_id')===$region->getOriginal('pivot_id')
+                                            and $region->getOriginal('pivot_id')===$city->getOriginal('pivot_id')
+                                            and $city->getOriginal('pivot_id')===$address->getOriginal('pivot_id'))
+                                                {{$country->country}}
+                                                {{$region->region}}
+                                                {{$region->code}}
+                                                {{$city->city}}
+                                                {{$city->postalcode}}
+                                                {{$address->street}}
+                                                {{$address->streetnumber}}
+                                                {{$address->boxnumber}}
+                                                <br>
+                                                @endif
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                @endforeach
                         </td>
                         <td>
                             @foreach($user->roles as $role)
                                 {{$role->name}}
+                                {{$role->pivot->created_at}}
                             @endforeach
                         </td>
                     </tr>

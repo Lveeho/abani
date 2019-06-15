@@ -10,7 +10,8 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    protected $toTruncate=['addresses','address_user','brands','categories','cities','colors','color_product','countries','lots','migrations','orderdetails','orders','photos','pricerecords','products','producttypes','regions','reviews','review_user','roles','role_user','sales','stocklogs','suppliers','users'];
+    protected $toTruncate=['addresses','address_city_region_country_user','brands','categories','cities','colors',
+        'color_product','countries','lots','migrations','orderdetails','orders','photos','pricerecords','products','producttypes','regions','reviews','review_user','roles','role_user','sales','stocklogs','suppliers','users'];
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');

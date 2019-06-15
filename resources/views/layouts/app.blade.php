@@ -55,7 +55,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ route('home') }}">Home</a>
+                        <a href="{{ url('admin/users') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="btn btn-nav ml-xl-5">
                             <i class="fas fa-cog"></i>

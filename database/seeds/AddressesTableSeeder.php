@@ -14,12 +14,10 @@ class AddressesTableSeeder extends Seeder
     {
         //
         DB::table('addresses')->insert([
-            'city_id'=>1,
             'street'=>'Petunialaan',
             'streetnumber'=>18,
         ]);
         DB::table('addresses')->insert([
-            'city_id'=>1,
             'street'=>'Petunialaan',
             'streetnumber'=>19,
         ]);

@@ -14,7 +14,6 @@ class RegionsTableSeeder extends Seeder
     {
         //
         DB::table('regions')->insert([
-            'country_id'=>1,
             'region'=>'West-Vlaanderen',
         ]);
     }

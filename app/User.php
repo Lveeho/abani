@@ -43,7 +43,16 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role','role_user');
     }
     public function addresses(){
-        return $this->belongsToMany('App\Address','address_user');
+        return $this->belongsToMany('App\Address','address_city_region_country_user')->withPivot('id')->withTimestamps();
+    }
+    public function cities(){
+        return $this->belongsToMany('App\City','address_city_region_country_user')->withPivot('id')->withTimestamps();
+    }
+    public function regions(){
+        return $this->belongsToMany('App\Region','address_city_region_country_user')->withPivot('id')->withTimestamps();
+    }
+    public function countries(){
+        return $this->belongsToMany('App\Country','address_city_region_country_user')->withPivot('id')->withTimestamps();
     }
 
     public function isAdmin(){

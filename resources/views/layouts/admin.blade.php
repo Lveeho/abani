@@ -80,7 +80,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{url('/')}}">
                         <i class="fas fa-store mr-3"></i>
                         <span class="menu-title">Website</span>
                     </a>

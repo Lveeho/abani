@@ -11,12 +11,10 @@ class Region extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'country_id','name','code'
+        'name','code'
     ];
-    public function cities(){
-        return $this->hasMany('App\City');
-    }
-    public function country(){
-        return $this->belongsTo('App\Country');
+
+    public function users(){
+        return $this->belongstomany('App\User');
     }
 }

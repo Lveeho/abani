@@ -11,13 +11,10 @@ class Address extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'city_id','street','streetnumber','boxnumber'
+        'street','streetnumber','boxnumber'
     ];
 
     public function users(){
         return $this->belongstomany('App\User');
-    }
-    public function city(){
-        return $this->belongsTo('App\City');
     }
 }

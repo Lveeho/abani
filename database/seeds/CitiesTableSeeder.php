@@ -14,7 +14,6 @@ class CitiesTableSeeder extends Seeder
     {
         //
         DB::table('cities')->insert([
-            'region_id'=>'1',
             'city'=>'Middelkerke',
             'postalcode'=>8430,
         ]);
