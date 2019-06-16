@@ -48,81 +48,96 @@
         </div>
         <div class="col-lg-6 my-4">
             @php($i=0)
-               {{-- @foreach($addresses as $address)
-                    @php($i++)
-                    <p>
-                        <a class="btn btn-inverse-outline-dark btn-block" data-toggle="collapse"
-                           href="#collapse{{$address->id}}"
-                           role="button" aria-expanded="false" aria-controls="collapse{{$address->id}}">
-                            Adres {{$i}}
-                        </a>
-                    </p>
-                    <div class="collapse" id="collapse{{$address->id}}">
-                        <div class="card card-body mb-3">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    {!! Form::hidden('country_ids[]',$address->city->region->country->id,
-                                    ['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-4">
-                                    {!! Form::label('country','Land:') !!}
-                                    {!! Form::text('country[]',$address->city->region->country->country,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group">
-                                    {!! Form::hidden('region_ids[]',$address->city->region->id,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-5">
-                                    {!! Form::label('region','Regio:') !!}
-                                    {!! Form::text('region[]',$address->city->region->region,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-3">
-                                    {!! Form::label('code','Regiocode:') !!}
-                                    {!! Form::text('code[]',$address->city->region->code,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    {!! Form::hidden('city_ids[]',$address->city->id,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-6">
-                                    {!! Form::label('city','Stad/gemeente:') !!}
-                                    {!! Form::text('city[]',$address->city->city,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-6">
-                                    {!! Form::label('postalcode','Postcode:') !!}
-                                    {!! Form::text('postalcode[]',$address->city->postalcode,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    {!! Form::hidden('address_ids[]',$address->id,['class'=>'form-control'])!!}
-                                </div>
-                                <div class="form-group col-md-8">
-                                    {!! Form::label('street','Straat:') !!}
-                                    {!! Form::text('street[]',$address->street,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-2">
-                                    {!! Form::label('streetnumber','Nr:') !!}
-                                    {!! Form::text('streetnumber[]',$address->streetnumber,['class'=>'form-control'])
-                                     !!}
-                                </div>
-                                <div class="form-group col-md-2">
-                                    {!! Form::label('boxnumber','Busnr:') !!}
-                                    {!! Form::text('boxnumber[]',$address->boxnumber,['class'=>'form-control']) !!}
-                                </div>
-                            </div>
-                         </div>
-                    </div>
-                @endforeach--}}
+               @foreach($allData as $oneData)
+                @foreach($oneData->addresses as $address)
+                    @foreach($oneData->cities as $city)
+                        @foreach($oneData->regions as $region)
+                            @foreach($oneData->countries as $country)
+                                @if($country->getOriginal('pivot_id')===$region->getOriginal('pivot_id')
+                               and $region->getOriginal('pivot_id')===$city->getOriginal('pivot_id')
+                               and $city->getOriginal('pivot_id')===$address->getOriginal('pivot_id'))
+                                    @php($i++)
+                                    <p>
+                                        <a class="btn btn-inverse-outline-dark btn-block" data-toggle="collapse"
+                                           href="#collapse{{$i}}"
+                                           role="button" aria-expanded="false" aria-controls="collapse{{$i}}">
+                                            Adres {{$i}}
+                                        </a>
+                                    </p>
+                                    <div class="collapse" id="collapse{{$i}}">
+                                        <div class="card card-body mb-3">
+                                            <div class="form-row">
+                                               <div class="form-group">
+                                                   {!! Form::hidden('country_ids[]',$country->id,
+                                                   ['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-4">
+                                                   {!! Form::label('country','Land:') !!}
+                                                   {!! Form::text('country[]',$country->country,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group">
+                                                   {!! Form::hidden('region_ids[]',$region->id,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-5">
+                                                   {!! Form::label('region','Regio:') !!}
+                                                   {!! Form::text('region[]',$region->region,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-3">
+                                                   {!! Form::label('code','Regiocode:') !!}
+                                                   {!! Form::text('code[]',$region->code,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                           </div>
+                                           <div class="form-row">
+                                               <div class="form-group">
+                                                   {!! Form::hidden('city_ids[]',$city->id,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-6">
+                                                   {!! Form::label('city','Stad/gemeente:') !!}
+                                                   {!! Form::text('city[]',$city->city,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-6">
+                                                   {!! Form::label('postalcode','Postcode:') !!}
+                                                   {!! Form::text('postalcode[]',$city->postalcode,
+                                                   ['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                           </div>
+                                           <div class="form-row">
+                                               <div class="form-group">
+                                                   {!! Form::hidden('address_ids[]',$address->id,['class'=>'form-control'])!!}
+                                               </div>
+                                               <div class="form-group col-md-8">
+                                                   {!! Form::label('street','Straat:') !!}
+                                                   {!! Form::text('street[]',$address->street,['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-2">
+                                                   {!! Form::label('streetnumber','Nr:') !!}
+                                                   {!! Form::text('streetnumber[]',$address->streetnumber,
+                                                   ['class'=>'form-control'])
+                                                    !!}
+                                               </div>
+                                               <div class="form-group col-md-2">
+                                                   {!! Form::label('boxnumber','Busnr:') !!}
+                                                   {!! Form::text('boxnumber[]',$address->boxnumber,
+                                                   ['class'=>'form-control']) !!}
+                                               </div>
+                                           </div>
+                                         </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    @endforeach
+                @endforeach
+                @endforeach
         </div>
     </div>
     <div class="row">

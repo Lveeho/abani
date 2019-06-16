@@ -20,8 +20,6 @@
                         <td>{{$user->firstname}}</td>
                         <td>{{$user->lastname}}</td>
                         <td>{{$user->email}}</td>
-
-
                         <td>
                             @foreach($user->countries as $country)
                                 @foreach($user->regions as $region)
