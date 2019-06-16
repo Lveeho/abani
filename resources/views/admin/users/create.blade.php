@@ -39,8 +39,18 @@
                  !!}
             </div>
             <div class="form-group mt-4 ">
+                {!! Form::label('code','Regiocode:') !!}
+                {!! Form::text('code',null,['class'=>'form-control'])
+                 !!}
+            </div>
+            <div class="form-group mt-4 ">
                 {!! Form::label('city','Stad/gemeente:') !!}
                 {!! Form::text('city',null,['class'=>'form-control','required'])
+                 !!}
+            </div>
+            <div class="form-group mt-4 ">
+                {!! Form::label('postalcode','Postcode:') !!}
+                {!! Form::text('postalcode',null,['class'=>'form-control','required'])
                  !!}
             </div>
             <div class="form-group mt-4 ">
@@ -56,7 +66,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('boxnumber','Busnr:') !!}
-                {!! Form::text('boxnumber',null,['class'=>'form-control','not-required']) !!}
+                {!! Form::text('boxnumber',null,['class'=>'form-control']) !!}
             </div>
         </div>
         <div class="form-group">
