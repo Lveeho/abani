@@ -27,6 +27,7 @@ Route::get('/wishlist','FrontController@wishlist');
 Auth::routes();
 Route::group(['middleware'=>'admin'],function() {
     Route::resource('/admin/users', 'UserController');
+    Route::resource('/admin/users/address','AddressController');
 });
 
 

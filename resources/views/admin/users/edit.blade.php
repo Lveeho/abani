@@ -42,14 +42,13 @@
                     </tbody>
                 </table>
             </div>
-
-
-
         </div>
         <div class="col-lg-6 my-4">
+            <div class="row">
             @php($i=0)
                @foreach($allData as $oneData)
                 @foreach($oneData->addresses as $address)
+                            <div class="col-lg-10">
                     @foreach($oneData->cities as $city)
                         @foreach($oneData->regions as $region)
                             @foreach($oneData->countries as $country)
@@ -135,10 +134,87 @@
                                 @endif
                             @endforeach
                         @endforeach
+
                     @endforeach
+                            </div>
+                        <div class="col-lg-2">
+                            {!! Form::open(['method'=>'DELETE', 'action'=>['AddressController@destroy',
+                            $address->getOriginal('pivot_id')]])!!}
+                            {!! Form::button('<i class="fas fa-trash-alt"></i>',['class'=>'btn create text-danger btn-sm',
+                            'type'=>'submit']) !!}
+                            {!! Form::close() !!}
+                        </div>
                 @endforeach
                 @endforeach
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10">
+                    <p>
+                        <a class="btn btn-inverse-outline-dark btn-block" data-toggle="collapse"
+                           href="#collapse{{$i+1}}"
+                           role="button" aria-expanded="false" aria-controls="collapse{{$i+1}}">
+                            Nieuw adres
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapse{{$i+1}}">
+                        <div class="card card-body mb-3">
+                            {!! Form::open(['method'=>'POST','action'=>'AddressController@store']) !!}
+                            <div class="form-group">
+                                {!! Form::hidden('user',$user->id,['class'=>'form-control'])!!}
+                            </div>
+                            <div class="form-group mt-4 ">
+                                {!! Form::label('country','Land:') !!}
+                                {!! Form::text('country',null,['class'=>'form-control','required'])
+                                 !!}
+                            </div>
+                            <div class="form-group mt-4 ">
+                                {!! Form::label('region','Regio:') !!}
+                                {!! Form::text('region',null,['class'=>'form-control','required'])
+                                 !!}
+                            </div>
+                            <div class="form-group mt-4 ">
+                                {!! Form::label('code','Regiocode:') !!}
+                                {!! Form::text('code',null,['class'=>'form-control'])
+                                 !!}
+                            </div>
+                            <div class="form-group mt-4 ">
+                                {!! Form::label('city','Stad/gemeente:') !!}
+                                {!! Form::text('city',null,['class'=>'form-control','required'])
+                                 !!}
+                            </div>
+                            <div class="form-group mt-4 ">
+                                {!! Form::label('postalcode','Postcode:') !!}
+                                {!! Form::text('postalcode',null,['class'=>'form-control','required'])
+                                 !!}
+                            </div>
+                            <div class="form-group mt-4 ">
+                                {!! Form::label('street','Straat:') !!}
+                                {!! Form::text('street',null,['class'=>'form-control','required'])
+                                 !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::label('streetnumber','Nr:') !!}
+                                {!! Form::text('streetnumber',null,['class'=>'form-control','required'])
+                                 !!}
+
+                            </div>
+                            <div class="form-group">
+                                {!! Form::label('boxnumber','Busnr:') !!}
+                                {!! Form::text('boxnumber',null,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        {!! Form::button('<i class="fas fa-plus-circle"></i>',
+                        ['class'=>'btn create text-primary btn-sm','type'=>'submit']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+                </div>
+            </div>
+
     </div>
     <div class="row">
         <hr>

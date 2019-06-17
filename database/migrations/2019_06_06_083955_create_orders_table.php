@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('total');
             $table->date('purchase_date');
             $table->integer('supplier_id');
+            $table->string('token');
             $table->softDeletes();
             $table->timestamps();
         });
