@@ -31,6 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ColorTableSeeder::class);
         $this->call(ProductTypesTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
+        $this->call(LotTableSeeder::class);
+        $this->call(ProductColorTableSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

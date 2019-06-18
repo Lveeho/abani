@@ -22,11 +22,11 @@
         </thead>
         <tbody>
         @foreach($products as $product)
-            <tr class="table-row" data-toggle="tooltip" title="Wijzig" data-placement="right"
+            <tr class="table-row" data-toggle="tooltip" title="Wijzig" data-placement="left"
                 data-href="{{route('products.edit',$product->id)}}">
-                <td rowspan="1">{!! Form::open(['method'=>'DELETE', 'action'=>['ProductController@destroy',
-                $product->id]])
-                                 !!}
+                <td rowspan="1">
+                    {!! Form::open(['method'=>'DELETE', 'action'=>['ProductController@destroy',
+                $product->id]])!!}
                     {!! Form::button('<i class="fas fa-trash-alt"></i>',['class'=>'btn create text-dark btn-sm',
                     'type'=>'submit']) !!}
                     {!! Form::close() !!}</td>

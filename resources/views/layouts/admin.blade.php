@@ -87,8 +87,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                        <i class="fas fa-user-friends mr-3"></i>
-                        <span class="menu-title">Gebruikers</span>
+                        <span class="menu-title mr-3">Gebruikers</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="ui-basic">
@@ -109,8 +108,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#1" aria-expanded="false"
                        aria-controls="1">
-                        <i class="fas fa-copyright mr-3"></i>
-                        <span class="menu-title">Merken</span>
+                        <span class="menu-title mr-3">Merken</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="1">
@@ -131,8 +129,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui2" aria-expanded="false"
                        aria-controls="ui2">
-                        <i class="fas fa-question mr-3"></i>
-                        <span class="menu-title">Producttypes</span>
+                        <span class="menu-title mr-3">Producttypes</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="ui2">
@@ -153,8 +150,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui3" aria-expanded="false"
                        aria-controls="ui3">
-                        <i class="fab fa-searchengin mr-3"></i>
-                        <span class="menu-title">Categorieën</span>
+                        <span class="menu-title mr-3">Categorieën</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="ui3">
@@ -175,8 +171,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui4" aria-expanded="false"
                        aria-controls="ui4">
-                        <i class="fas fa-tint mr-3"></i>
-                        <span class="menu-title">Kleuren</span>
+                        <span class="menu-title mr-3">Kleuren</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="ui4">
@@ -197,20 +192,40 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui5" aria-expanded="false"
                        aria-controls="ui5">
-                        <i class="fas fa-egg mr-3"></i>
-                        <span class="menu-title">Producten</span>
+                        <span class="menu-title mr-3">Producten</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="ui5">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('products.index')}}">
-                                    <span class="menu-title">Alle kleuren</span>
+                                    <span class="menu-title">Alle producten</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('products.create')}}">
-                                    <span class="menu-title">Kleur toevoegen</span>
+                                    <span class="menu-title">Product toevoegen</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui6" aria-expanded="false"
+                       aria-controls="ui6">
+                        <span class="menu-title mr-3">Batchen</span>
+                        <i class="fas fa-chevron-down ml-4"></i>
+                    </a>
+                    <div class="collapse" id="ui6">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('lots.index')}}">
+                                    <span class="menu-title">Alle batches</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('lots.create')}}">
+                                    <span class="menu-title">Batch toevoegen</span>
                                 </a>
                             </li>
                         </ul>

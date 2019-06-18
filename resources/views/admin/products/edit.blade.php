@@ -7,7 +7,7 @@
             {!! Form::model($product,['method'=>'PATCH','action'=>['ProductController@update',
             $product->id]])
              !!}
-            <div class="form-row">
+           <div class="form-row">
                 <div class="form-group col-md-4">
                     {!! Form::label('producttype_id','Type:') !!}
                     {!! Form::select('producttype_id',$producttypes,null,['class'=>'form-control']) !!}
@@ -36,16 +36,29 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-6">
                     {!! Form::label('description','Beschrijving:') !!}
                     {!! Form::textarea('description',null,['class'=>'form-control']) !!}
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
+                    {!! Form::label('ingredients','Ingrediënten:') !!}
+                    {!! Form::textarea('ingredients',null,['class'=>'form-control']) !!}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     {!! Form::label('code','Code:') !!}
                     {!! Form::text('code',null,['class'=>'form-control']) !!}
                 </div>
+                <div class="form-group col-md-6">
+                    {!! Form::label('is_active','Tonen in shop') !!}
+                    {!! Form::select('is_active',array(1=>'Ja',0=>'Nee'),null,['class'=>'form-control',
+                    'required']) !!}
+                </div>
+
             </div>
+
             <div class="form-group">
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
             </div>

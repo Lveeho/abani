@@ -33,6 +33,7 @@ Route::group(['middleware'=>'admin'],function() {
     Route::resource('/admin/categories','CategoryController');
     Route::resource('/admin/colors','ColorController');
     Route::resource('/admin/products','ProductController');
+    Route::resource('/admin/lots','LotController');
 });
 
 

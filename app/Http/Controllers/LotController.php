@@ -15,6 +15,8 @@ class LotController extends Controller
     public function index()
     {
         //
+        $lots=Lot::paginate(15);
+        return view('admin.lots.index',compact('lots'));
     }
 
     /**
@@ -25,6 +27,7 @@ class LotController extends Controller
     public function create()
     {
         //
+        return view('admin.lots.create');
     }
 
     /**
@@ -36,6 +39,9 @@ class LotController extends Controller
     public function store(Request $request)
     {
         //
+        Lot::create($request->all());
+        $lot=Lot::paginate(15);
+        return redirect()->route('lots.index',compact('lot'));
     }
 
     /**
@@ -47,6 +53,7 @@ class LotController extends Controller
     public function show(Lot $lot)
     {
         //
+
     }
 
     /**
@@ -55,9 +62,11 @@ class LotController extends Controller
      * @param  \App\Lot  $lot
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lot $lot)
+    public function edit($id)
     {
         //
+        $lot=Lot::findOrFail($id);
+        return view('admin.lots.edit',compact('lot'));
     }
 
     /**
@@ -67,9 +76,13 @@ class LotController extends Controller
      * @param  \App\Lot  $lot
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lot $lot)
+    public function update(Request $request, $id)
     {
         //
+        $lot=Lot::findOrFail($id);
+        $lot->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -81,5 +94,7 @@ class LotController extends Controller
     public function destroy(Lot $lot)
     {
         //
+        Lot::where('id',$lot->id)->delete();
+        return back();
     }
 }

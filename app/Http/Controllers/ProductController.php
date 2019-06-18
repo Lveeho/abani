@@ -31,6 +31,11 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $producttypes=Producttypes::pluck('type','id')->prepend('Kies optie','default');
+        $brands=Brand::pluck('brand','id')->prepend('Kies optie','default');
+        $categories=Category::pluck('title','id')->prepend('Kies optie','default');
+        return view('admin.products.create',compact('producttypes','brands','categories'));
+
     }
 
     /**
@@ -42,6 +47,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        Product::create($request->all());
+        $product=Product::paginate(15);
+        return redirect()->route('product.index',compact('product'));
     }
 
     /**
@@ -65,11 +73,9 @@ class ProductController extends Controller
     {
         //
         $product=Product::findOrFail($id);
-        $producttypes=Producttypes::pluck('type');
-        $brands=Brand::pluck('brand');
-        $categories=Category::pluck('title');
-
-
+        $producttypes=Producttypes::pluck('type','id');
+        $brands=Brand::pluck('brand','id');
+        $categories=Category::pluck('title','id');
 
         return view('admin.products.edit',compact('product','producttypes','brands','categories'));
     }
@@ -81,9 +87,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
         //
+        $product=Product::findOrFail($id);
+        $product->update($request->all());
+
+        return redirect()->back();
+
     }
 
     /**
@@ -95,5 +106,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        Product::where('id',$product->id)->delete();
+        return back();
     }
 }
