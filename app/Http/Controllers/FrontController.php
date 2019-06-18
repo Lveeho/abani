@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -10,8 +11,10 @@ class FrontController extends Controller
     public function index()
     {
         //
-        return view('welcome');
+        $brands=Brand::all();
+        return view('welcome', compact('brands'));
     }
+
     public function sales(){
        return view('sale');
     }

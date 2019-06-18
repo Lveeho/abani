@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class BrandController extends Controller
 {
@@ -15,6 +18,9 @@ class BrandController extends Controller
     public function index()
     {
         //
+
+        $brands=Brand::paginate(15);
+        return view('admin.brands.index',compact('brands'));
     }
 
     /**
@@ -25,6 +31,8 @@ class BrandController extends Controller
     public function create()
     {
         //
+        return view('admin.brands.create');
+
     }
 
     /**
@@ -36,6 +44,19 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         //
+        $brand=new Brand();
+
+        $picture=$request->file('photo');
+        if(!empty($picture)){
+            $extension=$picture->getClientOriginalExtension();
+            Storage::disk('brands')->put($picture->getFilename().'.'.$extension,File::get($picture));
+            $brand->photo=$picture->getFilename().'.'.$extension;/*phpF38.tmp.png*/
+        }
+        $brand->brand=$request->brand;
+        $brand->save();
+        return redirect()->route('brands.index');
+
+
     }
 
     /**
@@ -55,9 +76,13 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
         //
+        $brand=Brand::findOrFail($id);
+        return view('admin.brands.edit',compact('brand'));
+
+
     }
 
     /**
@@ -67,9 +92,23 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
         //
+        $brand=Brand::findOrFail($id);
+        $picture=$request->file('photo');
+        if(!empty($picture)){
+            $extension=$picture->getClientOriginalExtension();
+            Storage::disk('brands')->put($picture->getFilename().'.'.$extension,File::get($picture));
+            $brand->photo=$picture->getFilename().'.'.$extension;/*phpF38.tmp.png*/
+        }
+        $brand->brand=$request->brand;
+        $brand->update();
+
+        /*oude foto's blijven zo wel bestaan*/
+
+        return redirect()->back();
+
     }
 
     /**
@@ -81,5 +120,7 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         //
+        Brand::where('id',$brand->id)->delete();
+        return back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\Producttypes;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class ProductTypesController extends Controller
     public function index()
     {
         //
+        $producttypes=Producttypes::paginate(15);
+        return view('admin.producttypes.index',compact('producttypes'));
     }
 
     /**
@@ -25,6 +28,7 @@ class ProductTypesController extends Controller
     public function create()
     {
         //
+        return view('admin.producttypes.create');
     }
 
     /**
@@ -36,6 +40,11 @@ class ProductTypesController extends Controller
     public function store(Request $request)
     {
         //
+        $producttype=new Producttypes();
+        $producttype->type=$request->type;
+        $producttype->save();
+        $producttypes=Producttypes::paginate(15);
+        return redirect()->route('producttypes.index',compact('producttypes'));
     }
 
     /**
@@ -55,9 +64,11 @@ class ProductTypesController extends Controller
      * @param  \App\Producttypes  $productTypes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producttypes $productTypes)
+    public function edit($id)
     {
         //
+        $producttype=Producttypes::findOrFail($id);
+        return view('admin.producttypes.edit',compact('producttype'));
     }
 
     /**
@@ -67,9 +78,14 @@ class ProductTypesController extends Controller
      * @param  \App\Producttypes  $productTypes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producttypes $productTypes)
+    public function update(Request $request, $id)
     {
         //
+        $producttype=Producttypes::findOrFail($id);
+        $producttype->type=$request->type;
+        $producttype->update();
+        return redirect()->back();
+
     }
 
     /**
@@ -81,5 +97,7 @@ class ProductTypesController extends Controller
     public function destroy(Producttypes $productTypes)
     {
         //
+        Producttypes::where('id',$productTypes->id)->delete();
+        return back();
     }
 }

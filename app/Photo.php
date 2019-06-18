@@ -11,6 +11,6 @@ class Photo extends Model
     use SoftDeletes;
 
     protected $fillable=[
-        'product_color_id','name'
+        'product_color_id','name','description'
     ];
 }

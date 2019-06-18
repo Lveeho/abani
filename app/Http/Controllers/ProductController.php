@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
 use App\Product;
+use App\Producttypes;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,6 +18,9 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $products=Product::paginate(15);
+        return view('admin.products.index',compact('products'));
+
     }
 
     /**
@@ -55,9 +61,17 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
+        $product=Product::findOrFail($id);
+        $producttypes=Producttypes::pluck('type');
+        $brands=Brand::pluck('brand');
+        $categories=Category::pluck('title');
+
+
+
+        return view('admin.products.edit',compact('product','producttypes','brands','categories'));
     }
 
     /**

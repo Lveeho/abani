@@ -28,6 +28,11 @@ Auth::routes();
 Route::group(['middleware'=>'admin'],function() {
     Route::resource('/admin/users', 'UserController');
     Route::resource('/admin/users/address','AddressController');
+    Route::resource('/admin/brands','BrandController');
+    Route::resource('/admin/producttypes','ProductTypesController');
+    Route::resource('/admin/categories','CategoryController');
+    Route::resource('/admin/colors','ColorController');
+    Route::resource('/admin/products','ProductController');
 });
 
 

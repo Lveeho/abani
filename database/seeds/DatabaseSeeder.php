@@ -26,6 +26,11 @@ class DatabaseSeeder extends Seeder
         $this->call(CitiesTableSeeder::class);
         $this->call(AddressesTableSeeder::class);
         $this->call(AddressUserTableSeeder::class);
+        $this->call(BrandsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(ColorTableSeeder::class);
+        $this->call(ProductTypesTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

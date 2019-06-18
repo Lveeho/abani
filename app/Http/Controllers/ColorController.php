@@ -15,6 +15,8 @@ class ColorController extends Controller
     public function index()
     {
         //
+        $colors=Color::paginate(15);
+        return view('admin.colors.index',compact('colors'));
     }
 
     /**
@@ -25,6 +27,7 @@ class ColorController extends Controller
     public function create()
     {
         //
+        return view('admin.colors.create');
     }
 
     /**
@@ -36,6 +39,11 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         //
+        $color=new Color();
+        $color->color=$request->color;
+        $color->save();
+        $colors=Color::paginate(15);
+        return view('admin.colors.index',compact('colors'));
     }
 
     /**
@@ -47,6 +55,7 @@ class ColorController extends Controller
     public function show(Color $color)
     {
         //
+
     }
 
     /**
@@ -55,9 +64,12 @@ class ColorController extends Controller
      * @param  \App\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function edit(Color $color)
+    public function edit($id)
     {
         //
+        $color=Color::findOrFail($id);
+        return view('admin.colors.edit',compact('color'));
+
     }
 
     /**
@@ -67,9 +79,13 @@ class ColorController extends Controller
      * @param  \App\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Color $color)
+    public function update(Request $request, $id)
     {
         //
+        $color=Color::findOrFail($id);
+        $color->color=$request->color;
+        $color->update();
+        return redirect()->back();
     }
 
     /**
@@ -81,5 +97,7 @@ class ColorController extends Controller
     public function destroy(Color $color)
     {
         //
+        Color::where('id',$color->id)->delete();
+        return back();
     }
 }

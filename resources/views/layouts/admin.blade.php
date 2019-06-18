@@ -95,38 +95,34 @@
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('users.index')}}">
-                                    <i class="fas fa-user-friends mr-3"></i>
                                     <span class="menu-title">Alle gebruikers</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('users.create')}}">
-                                    <i class="fas fa-users-cog mr-3"></i>
                                     <span class="menu-title">Gebruiker aanmaken</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                {{--<li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui3" aria-expanded="false"
-                       aria-controls="ui-basic">
-                        <i class="fas fa-pen-nib mr-3"></i>
-                        <span class="menu-title">Auteurs</span>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#1" aria-expanded="false"
+                       aria-controls="1">
+                        <i class="fas fa-copyright mr-3"></i>
+                        <span class="menu-title">Merken</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
-                    <div class="collapse" id="ui3">
+                    <div class="collapse" id="1">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-pen-nib mr-3"></i>
-                                    <span class="menu-title">Alle auteurs</span>
+                                <a class="nav-link" href="{{route('brands.index')}}">
+                                    <span class="menu-title">Alle brands</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-pen-nib mr-3"></i>
-                                    <span class="menu-title">Auteur toevoegen</span>
+                                <a class="nav-link" href="{{route('brands.create')}}">
+                                    <span class="menu-title">Brand toevoegen</span>
                                 </a>
                             </li>
                         </ul>
@@ -134,29 +130,92 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui2" aria-expanded="false"
-                       aria-controls="ui-basic">
-                        <i class="fas fa-book mr-3"></i>
-                        <span class="menu-title">Boeken</span>
+                       aria-controls="ui2">
+                        <i class="fas fa-question mr-3"></i>
+                        <span class="menu-title">Producttypes</span>
                         <i class="fas fa-chevron-down ml-4"></i>
                     </a>
                     <div class="collapse" id="ui2">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-book mr-3"></i>
-                                    <span class="menu-title">Alle boeken</span>
+                                <a class="nav-link" href="{{route('producttypes.index')}}">
+                                    <span class="menu-title">Alle producttypes</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-book-medical mr-3"></i>
-                                    <span class="menu-title">Boek toevoegen</span>
+                                <a class="nav-link" href="{{route('producttypes.create')}}">
+                                    <span class="menu-title">Producttype toevoegen</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                </li>--}}
-
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui3" aria-expanded="false"
+                       aria-controls="ui3">
+                        <i class="fab fa-searchengin mr-3"></i>
+                        <span class="menu-title">Categorieën</span>
+                        <i class="fas fa-chevron-down ml-4"></i>
+                    </a>
+                    <div class="collapse" id="ui3">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('categories.index')}}">
+                                    <span class="menu-title">Alle categorieën</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('categories.create')}}">
+                                    <span class="menu-title">Categorie toevoegen</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui4" aria-expanded="false"
+                       aria-controls="ui4">
+                        <i class="fas fa-tint mr-3"></i>
+                        <span class="menu-title">Kleuren</span>
+                        <i class="fas fa-chevron-down ml-4"></i>
+                    </a>
+                    <div class="collapse" id="ui4">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('colors.index')}}">
+                                    <span class="menu-title">Alle kleuren</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('colors.create')}}">
+                                    <span class="menu-title">Kleur toevoegen</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui5" aria-expanded="false"
+                       aria-controls="ui5">
+                        <i class="fas fa-egg mr-3"></i>
+                        <span class="menu-title">Producten</span>
+                        <i class="fas fa-chevron-down ml-4"></i>
+                    </a>
+                    <div class="collapse" id="ui5">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('products.index')}}">
+                                    <span class="menu-title">Alle kleuren</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('products.create')}}">
+                                    <span class="menu-title">Kleur toevoegen</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
         <!-- partial -->

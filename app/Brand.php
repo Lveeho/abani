@@ -10,6 +10,9 @@ class Brand extends Model
     use SoftDeletes;
 
     protected $fillable=[
-        'brand'
+        'brand','photo'
     ];
+    public function products(){
+        return $this->hasMany('App\Product');
+    }
 }

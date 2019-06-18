@@ -15,6 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $categories=Category::paginate(15);
+        return view ('admin.categories.index',compact('categories'));
     }
 
     /**
@@ -25,6 +27,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view ('admin.categories.create');
     }
 
     /**
@@ -36,6 +39,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $category=new Category();
+        $category->title=$request->title;
+        $category->save();
+        $categories=Category::paginate(15);
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**
@@ -55,9 +63,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
         //
+        $category=Category::findOrFail($id);
+        return view('admin.categories.edit',compact('category'));
     }
 
     /**
@@ -67,9 +77,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
         //
+        $category=Category::findOrFail($id);
+        $category->title=$request->title;
+        $category->update();
+        return redirect()->back();
+
     }
 
     /**
@@ -81,5 +96,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        Category::where('id',$category->id)->delete();
+        return back();
+
     }
 }
