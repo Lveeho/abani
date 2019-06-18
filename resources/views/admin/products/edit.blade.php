@@ -65,5 +65,47 @@
             {!! Form::close() !!}
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-10">
+            <p>
+                <a class="btn btn-inverse-outline-dark btn-block" data-toggle="collapse"
+                   href="#collapse1"
+                   role="button" aria-expanded="false" aria-controls="collapse1">
+                    Nieuw detail
+                </a>
+            </p>
+            <div class="collapse" id="collapse1">
+                <div class="card card-body mb-3">
+                    {!! Form::open(['method'=>'POST','action'=>'ProductController@store']) !!}
+                    <div class="form-group">
+                        {!! Form::label('color_id','Kleur:') !!}
+                        {!! Form::select('color_id',$colors,null,['class'=>'form-control','required'])
+                         !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::hidden('product_id',$product->id,['class'=>'form-control'])!!}
+                    </div>
+                    <div class="form-group mt-4 ">
+                        {!! Form::label('lot_id','Batch:') !!}
+                        {!! Form::select('lot_id',$lots,null,['class'=>'form-control','required'])
+                         !!}
+                    </div>
+                    <div class="form-group mt-4 ">
+                        {!! Form::label('quantity','Aantal:') !!}
+                        {!! Form::text('quantity',null,['class'=>'form-control','required'])
+                         !!}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+                {!! Form::button('<i class="far fa-save"></i>',
+                ['class'=>'btn create text-primary btn-sm','type'=>'submit']) !!}
+            </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
 
 @endsection

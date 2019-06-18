@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Color;
+use App\Lot;
 use App\Product;
 use App\Producttypes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -44,9 +47,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
+        if((isset($request->color_id))and empty($request->price)){
+            DB::table('color_product')
+                ->insert(['color_id'=>$request->color_id,'product_id'=>$request->product_id,
+                    'lot_id'=>$request->lot_id,
+                    'quantity'=>$request->quantity]);
+            return redirect()->back();
+        }
         Product::create($request->all());
         $product=Product::paginate(15);
         return redirect()->route('product.index',compact('product'));
@@ -58,9 +69,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($request)
     {
         //
+
+
     }
 
     /**
@@ -76,8 +89,10 @@ class ProductController extends Controller
         $producttypes=Producttypes::pluck('type','id');
         $brands=Brand::pluck('brand','id');
         $categories=Category::pluck('title','id');
+        $colors=Color::pluck('color','id')->prepend('Kies optie','default');
+        $lots=Lot::pluck('code','id')->prepend('Kies optie','default');
 
-        return view('admin.products.edit',compact('product','producttypes','brands','categories'));
+        return view('admin.products.edit',compact('product','producttypes','brands','categories','colors','lots'));
     }
 
     /**
