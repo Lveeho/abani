@@ -29,8 +29,8 @@
                     {!! Form::text('price',null,['class'=>'form-control']) !!}
                 </div>
                 <div class="form-group col-md-4">
-                    {!! Form::label('volume','Inhoud:') !!}
-                    {!! Form::text('volume',null,['class'=>'form-control']) !!}
+                    {!! Form::label('code','Code:') !!}
+                    {!! Form::text('code',null,['class'=>'form-control']) !!}
                 </div>
             </div>
             <div class="form-row">
@@ -44,16 +44,11 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    {!! Form::label('code','Code:') !!}
-                    {!! Form::text('code',null,['class'=>'form-control']) !!}
-                </div>
-                <div class="form-group col-md-6">
+                <div class="form-group">
                     {!! Form::label('is_active','Tonen in shop') !!}
                     {!! Form::select('is_active',array(1=>'Ja',0=>'Nee'),null,['class'=>'form-control',
                     'required']) !!}
                 </div>
-
             </div>
             <div class="form-group">
                 {!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}

@@ -190,27 +190,6 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui5" aria-expanded="false"
-                       aria-controls="ui5">
-                        <span class="menu-title mr-3">Producten</span>
-                        <i class="fas fa-chevron-down ml-4"></i>
-                    </a>
-                    <div class="collapse" id="ui5">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('products.index')}}">
-                                    <span class="menu-title">Alle producten</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('products.create')}}">
-                                    <span class="menu-title">Product toevoegen</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui6" aria-expanded="false"
                        aria-controls="ui6">
                         <span class="menu-title mr-3">Batchen</span>
@@ -231,6 +210,28 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui5" aria-expanded="false"
+                       aria-controls="ui5">
+                        <span class="menu-title mr-3">Producten</span>
+                        <i class="fas fa-chevron-down ml-4"></i>
+                    </a>
+                    <div class="collapse" id="ui5">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('products.index')}}">
+                                    <span class="menu-title">Alle producten</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('products.create')}}">
+                                    <span class="menu-title">Product toevoegen</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
             </ul>
         </nav>
         <!-- partial -->

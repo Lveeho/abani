@@ -10,7 +10,7 @@ class Lot extends Model
     //
     use SoftDeletes;
     protected $fillable=[
-        'code','manufactured','expiry','quantity','ingredients'
+        'code','manufactured','expiry','quantity','ingredients','volume'
     ];
     public function product(){
         return $this->belongsToMany('App\Product','color_product');

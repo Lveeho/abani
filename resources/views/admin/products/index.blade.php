@@ -13,9 +13,7 @@
             <th scope="col" style="width:1px">Productcode</th>
             <th scope="col" style="width:1px">Naam</th>
             <th scope="col" style="width:1px">Beschrijving</th>
-            <th scope="col" style="width:1px">Ingrediënten</th>
             <th scope="col" style="width:1px">Prijs</th>
-            <th scope="col" style="width:1px">Inhoud</th>
             <th scope="col" style="width:1px">Zichtbaar</th>
 
         </tr>
@@ -36,9 +34,7 @@
                 <td rowspan="1">{{$product->code}}</td>
                 <td rowspan="1">{{$product->name}}</td>
                 <td rowspan="1">{{Str::limit(($product->description),10)}}</td>
-                <td rowspan="1">{{Str::limit(($product->ingredients),10)}}</td>
                 <td rowspan="1">{{$product->price}}</td>
-                <td rowspan="1">{{$product->volume}}</td>
                 <td rowspan="1">{{$product->is_active}}</td>
             </tr>
         @endforeach

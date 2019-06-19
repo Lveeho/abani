@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CountryController extends Controller
 {
@@ -78,8 +79,12 @@ class CountryController extends Controller
      * @param  \App\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy($color)
     {
         //
+        DB::table('color_product')
+            ->where('id',$color)
+            ->delete();
+        return back();
     }
 }

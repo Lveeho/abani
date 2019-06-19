@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->decimal('price',8,2);
             $table->integer('brand_id');
             $table->integer('category_id');
-            $table->decimal('volume',8,2);
             $table->integer('code');
             $table->boolean('is_active');
             $table->softDeletes();

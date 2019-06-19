@@ -14,7 +14,6 @@ $factory->define(\App\Product::class, function (Faker $faker) {
         'name' =>$faker->text($maxNbChars=10),
         'description'=>$faker->text($maxNbChars=200),
         'price'=>$faker->randomNumber(2),
-        'volume'=>$faker->randomNumber(1),
         'code'=>$faker->randomNumber(8),
         'is_active'=>$faker->boolean,
     ];

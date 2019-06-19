@@ -97,6 +97,7 @@ class ColorController extends Controller
     public function destroy(Color $color)
     {
         //
+        dd($color);
         Color::where('id',$color->id)->delete();
         return back();
     }

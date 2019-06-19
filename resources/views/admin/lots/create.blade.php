@@ -18,13 +18,33 @@
                     {!! Form::label('expiry','Vervalt op:') !!}
                     {!! Form::date('expiry',null,['class'=>'form-control']) !!}
                 </div>
-
-            </div>
-            <div class="form-group col-md-12">
-                {!! Form::label('ingredients','Ingrediënten:') !!}
-                {!! Form::textarea('ingredients',null,['class'=>'form-control']) !!}
             </div>
         </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-9">
+                    <div class="form-group">
+                        {!! Form::label('ingredients','Ingrediënten:') !!}
+                        {!! Form::textarea('ingredients',null,['class'=>'form-control']) !!}
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            {!! Form::label('volume','Inhoud(ml):') !!}
+                            {!! Form::text('volume',null,['class'=>'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            {!! Form::label('quantity','Aantal:') !!}
+                            {!! Form::text('quantity',null,['class'=>'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             {!!Form::submit('Opslaan',
             ['class'=>'btn btn-primary'])!!}

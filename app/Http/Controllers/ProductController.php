@@ -6,10 +6,13 @@ use App\Brand;
 use App\Category;
 use App\Color;
 use App\Lot;
+use App\Photo;
 use App\Product;
 use App\Producttypes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -34,10 +37,12 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $colorsSelect=Color::pluck('color','id')->prepend('Kies optie');
+        $lotsSelect=Lot::pluck('code','id')->prepend('Kies optie');
         $producttypes=Producttypes::pluck('type','id')->prepend('Kies optie','default');
         $brands=Brand::pluck('brand','id')->prepend('Kies optie','default');
         $categories=Category::pluck('title','id')->prepend('Kies optie','default');
-        return view('admin.products.create',compact('producttypes','brands','categories'));
+        return view('admin.products.create',compact('producttypes','brands','categories','lotsSelect','colorsSelect'));
 
     }
 
@@ -51,15 +56,31 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+
         if((isset($request->color_id))and empty($request->price)){
             DB::table('color_product')
                 ->insert(['color_id'=>$request->color_id,'product_id'=>$request->product_id,
                     'lot_id'=>$request->lot_id]);
+            $subProduct=DB::table('color_product')
+               ->latest()->value('id');
+
+            $picture=$request->file('name');
+            dd($picture);
+            if(!empty($picture)){
+                $extension=$picture->getClientOriginalExtension();
+                Storage::disk('products')->put($picture->getFilename().'.'.$extension,File::get($picture));
+                $newImage=new Photo();
+                $newImage->name=$picture->getFilename().'.'.$extension;/*phpF38.tmp.png*/
+                $newImage->product_color_id=$subProduct;
+                $newImage->save();
+            }
             return redirect()->back();
         }
+
+
         Product::create($request->all());
         $product=Product::paginate(15);
-        return redirect()->route('product.index',compact('product'));
+        return redirect()->route('products.index',compact('product'));
     }
 
     /**
