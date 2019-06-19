@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->integer('producttype_id');
             $table->string('name');
             $table->text('description');
-            $table->string('ingredients');
             $table->decimal('price',8,2);
             $table->integer('brand_id');
             $table->integer('category_id');

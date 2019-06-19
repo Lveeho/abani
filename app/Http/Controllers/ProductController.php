@@ -54,8 +54,7 @@ class ProductController extends Controller
         if((isset($request->color_id))and empty($request->price)){
             DB::table('color_product')
                 ->insert(['color_id'=>$request->color_id,'product_id'=>$request->product_id,
-                    'lot_id'=>$request->lot_id,
-                    'quantity'=>$request->quantity]);
+                    'lot_id'=>$request->lot_id]);
             return redirect()->back();
         }
         Product::create($request->all());
@@ -89,10 +88,17 @@ class ProductController extends Controller
         $producttypes=Producttypes::pluck('type','id');
         $brands=Brand::pluck('brand','id');
         $categories=Category::pluck('title','id');
-        $colors=Color::pluck('color','id')->prepend('Kies optie','default');
-        $lots=Lot::pluck('code','id')->prepend('Kies optie','default');
+        $colors=Color::pluck('color','id');
+        $lots=Lot::pluck('code','id');
+        $colorsSelect=Color::pluck('color','id')->prepend('Kies optie');
+        $lotsSelect=Lot::pluck('code','id')->prepend('Kies optie');
+        $allData=Product::with('colors')
+            ->with('lots')
+            ->where('id',$id)
+            ->get();
 
-        return view('admin.products.edit',compact('product','producttypes','brands','categories','colors','lots'));
+
+        return view('admin.products.edit',compact('product','producttypes','brands','categories','colors','lots','colorsSelect','lotsSelect','allData'));
     }
 
     /**
@@ -107,6 +113,12 @@ class ProductController extends Controller
         //
         $product=Product::findOrFail($id);
         $product->update($request->all());
+
+        if(isset($request->color_id)){
+            DB::table('color_product')
+                ->where('id',$request->pivot_id)
+                ->update(['color_id'=>$request->color_id,'lot_id'=>$request->lot_id]);
+        }
 
         return redirect()->back();
 

@@ -18,8 +18,12 @@
                     {!! Form::label('expiry','Vervalt op:') !!}
                     {!! Form::date('expiry',null,['class'=>'form-control']) !!}
                 </div>
-            </div>
 
+            </div>
+            <div class="form-group col-md-12">
+                {!! Form::label('ingredients','Ingrediënten:') !!}
+                {!! Form::textarea('ingredients',null,['class'=>'form-control']) !!}
+            </div>
             <div class="form-group">
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
             </div>

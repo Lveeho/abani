@@ -11,5 +11,6 @@ $factory->define(\App\Lot::class, function (Faker $faker) {
         'code' => $faker->unique()->randomNumber($nbDigits=8),
         'manufactured'=>$faker->date($format='Y-m-d',$max='now'),
         'expiry'=>$faker->dateTimeBetween('now','+4 years'),
+        'ingredients'=>$faker->text($maxNbChars=50),
     ];
 });

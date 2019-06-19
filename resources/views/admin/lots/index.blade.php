@@ -9,6 +9,7 @@
             <th scope="col">Batchcode</th>
             <th scope="col">Gemaakt op</th>
             <th scope="col">Vervalt op</th>
+            <th scope="col">Ingrediënten</th>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
                 <td>{{$lot->code}}</td>
                 <td>{{$lot->manufactured}}</td>
                 <td>{{$lot->expiry}}</td>
+                <td>{{$lot->ingredients}}</td>
 
             </tr>
         @endforeach

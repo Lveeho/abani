@@ -11,7 +11,7 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable=[
-        'producttype_id','name','description','ingredients','price','brand_id','category_id','volume','code','is_active'
+        'producttype_id','name','description','price','brand_id','category_id','volume','code','is_active'
     ];
 
     public function category(){
@@ -22,5 +22,11 @@ class Product extends Model
     }
     public function brand(){
         return $this->belongsTo('App\Brand');
+    }
+    public function colors(){
+        return $this->belongstomany('App\Color','color_product')->withPivot('id','stock')->withTimestamps();
+    }
+    public function lots(){
+        return $this->belongstomany('App\Lot','color_product')->withPivot('id','stock')->withTimestamps();
     }
 }

@@ -13,7 +13,6 @@ $factory->define(\App\Product::class, function (Faker $faker) {
         'brand_id'=>rand(1,15),
         'name' =>$faker->text($maxNbChars=10),
         'description'=>$faker->text($maxNbChars=200),
-        'ingredients'=>$faker->text($maxNbChars=50),
         'price'=>$faker->randomNumber(2),
         'volume'=>$faker->randomNumber(1),
         'code'=>$faker->randomNumber(8),

@@ -18,14 +18,14 @@ class CreateColorProductTable extends Migration
             $table->bigIncrements('id')->index();
             $table->integer('color_id')->unsigned()->nullable()->index();
             $table->integer('product_id')->unsigned()->nullable()->index();
-            $table->integer('quantity')->nullable();
-            $table->integer('lot_id');
+            $table->integer('stock')->nullable();
+            $table->integer('lot_id')->unsigned()->nullable()->index();
             $table->softDeletes();
 
             $table->timestamps();
             $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-
+            $table->foreign('lot_id')->references('id')->on('lots')->onDelete('cascade');
         });
     }
 

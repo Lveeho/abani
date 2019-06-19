@@ -16,361 +16,361 @@ class ProductColorTableSeeder extends Seeder
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
         DB::table('color_product')->insert([
             'color_id'=>rand(1,19),
             'product_id'=>rand(1,20),
-            'quantity'=>rand(1,600),
+            'stock'=>rand(1,600),
             'lot_id'=>rand(1,20),
         ]);
 

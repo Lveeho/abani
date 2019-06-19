@@ -18,6 +18,8 @@ class CreateLotsTable extends Migration
             $table->integer('code')->nullable();
             $table->date('manufactured')->nullable();
             $table->date('expiry')->nullable();
+            $table->integer('quantity')->nullable();
+            $table->string('ingredients');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -212,9 +212,8 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                </div>
             </div>
-
+        </div>
     </div>
     <div class="row">
         <hr>
@@ -238,10 +237,7 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-
         </div>
-
-
     </div>
 
     @include('includes.form_error')
