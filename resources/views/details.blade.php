@@ -30,7 +30,9 @@
 										<div class="col-3">
 											<div class="thumb-wrapper">
 												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
+													<img src="{{asset('assets/images/detailpicbody.jpg')}}"
+                                                         class="img-responsive
+													 img-fluid" alt="">
 												</div>
 											</div>
 										</div>
@@ -113,7 +115,7 @@
 						</div>
 						<div id="descriptionshort" class="border-bottom">
 							<h2 class="text-dark text-uppercase pt-4"> Short description</h2>
-							<p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit.  </p>
+							<p class="text-dark">{{$product->description}} </p>
 						</div>
 						<div id="productdetails" class="border-bottom">
 							<h2 class="text-dark pt-4">
@@ -122,7 +124,7 @@
 							<h3 class="text-dark"> <em> Availability: <span style="color: greenyellow"><i
 									class="fas fa-check-circle"></i>
 								in stock</span></em></h3>
-							<h3 class="text-dark pt-1 pb-3"> Product code: <strong> #449797</strong> </h3>
+							<h3 class="text-dark pt-1 pb-3"> Product code: <strong>{{$product->code}}</strong> </h3>
 						</div>
 						<div id="selectordetails" class="row">
 							<div class="col-lg-6">
@@ -191,42 +193,23 @@
 								<nav>
 									<div class="nav nav-tabs d-flex flex-column flex-md-row" id="nav-tab"
 									     role="tablist">
-										<a class="nav-item nav-link active text-uppercase" id="nav-description-tab" data-toggle="tab"
-										   href="#nav-description"
-										   role="tab" aria-controls="nav-description" aria-selected="true">Description</a>
 										<a class="nav-item nav-link text-uppercase" id="nav-ingredients-tab" data-toggle="tab"
 										   href="#nav-ingredients"
 										   role="tab" aria-controls="nav-ingredients" aria-selected="false">Ingredients</a>
-										<a class="nav-item nav-link text-uppercase" id="nav-directions-tab" data-toggle="tab"
-										   href="#nav-directions"
-										   role="tab" aria-controls="nav-directions" aria-selected="false">Directions</a>
 										<a class="nav-item nav-link text-uppercase" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews"
 										   role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews</a>
 									</div>
 								</nav>
 								<div class="tab-content text-dark" id="nav-tabContent">
-									<div class="tab-pane fade show active my-5" id="nav-description" role="tabpanel"
-									     aria-labelledby="nav-description-tab">
-										<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa delectus deleniti distinctio et expedita fuga in itaque libero minima obcaecati quasi quos sapiente, soluta suscipit veniam voluptatem. Ex, odio.</p>
-									</div>
 									<div class="tab-pane fade my-5" id="nav-ingredients" role="tabpanel"
 									     aria-labelledby="nav-ingredients-tab">
-										<ul>
-											<li> bla</li>
-											<li> bla</li>
-											<li> bla</li>
-											<li> bla</li>
-											<li> bla</li>
-											<li> bla</li>
-											<li> bla</li>
-											<li> bla</li>
-										</ul>
+										<p>@foreach($product->lots as $lot)
+                                            Ingrediënten batch nr {{$lot->id}}:<br>
+                                                {{$lot->ingredients}}
+                                                <br>
+                                               @endforeach
+                                        </p>
 									</div>
-									<div class="tab-pane fade my-5" id="nav-directions" role="tabpanel"
-									     aria-labelledby="nav-directions-tab">
-										<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid blanditiis commodi consectetur dignissimos eligendi impedit ipsa, magnam neque nesciunt, quidem quod temporibus veniam! Molestias, sapiente sed. Aliquam eius ipsam quibusdam.</p>
-									</div>
-									
 									<div class="tab-pane fade my-5" id="nav-reviews" role="tabpanel"
 									     aria-labelledby="nav-reviews-tab">
 										<div id="review_form_response1" style="display:none;" class="alert"></div>
@@ -294,7 +277,7 @@
 		</section>
 	</div>
 	
-	<div class="container-fluid">
+	{{--<div class="container-fluid">
 		<section id="relatedproducts" class="col-lg-8 offset-lg-2 py-5 border-top">
 			<div class="row d-flex pb-3">
 				<h2 class="text-uppercase text-dark mr-auto my-auto">Related products</h2>
@@ -673,7 +656,7 @@
 				</div>
 			</div>
 		</section>
-        {{--@include('include.tops')
-		@include('include.subscribe')--}}
-	</div>
+        --}}{{--@include('include.tops')
+		@include('include.subscribe')--}}{{--
+	</div>--}}
 @endsection

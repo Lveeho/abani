@@ -20,7 +20,7 @@ Route::get('/lips','FrontController@lips');
 Route::get('/eyes','FrontController@eyes');
 Route::get('/shoppingcart','FrontController@shoppingcart');
 Route::get('/wishlist','FrontController@wishlist');
-Route::get('/details','FrontController@details')->name('details');
+Route::get('/{id}','FrontController@details')->name('details');
 
 
 

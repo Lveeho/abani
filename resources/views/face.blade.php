@@ -68,7 +68,9 @@
 														<i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
 													</div>
 												</a>
-												<a href="{{route('details')}}" class="btn btn-look flex-fill" role="button">
+												<a href="{{route('details',$product->id)}}" class="btn btn-look
+												flex-fill"
+                                                   role="button">
 													<i class="text-white fas fa-search py-2 px-2"></i>
 												</a>
 											</div>
