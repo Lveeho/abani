@@ -66,6 +66,12 @@ return [
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
+        'productcolors' => [
+            'driver' => 'local',
+            'root' => public_path().'/uploads/productcolors',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

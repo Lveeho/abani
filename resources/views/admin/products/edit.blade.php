@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-6">
             {!! Form::model($product,['method'=>'PATCH','action'=>['ProductController@update',
-          $product->id]])!!}
+          $product->id],'files'=>true])!!}
             <div class="form-row">
                 <div class="form-group col-md-4">
                     {!! Form::label('producttype_id','Type:') !!}
@@ -34,6 +34,10 @@
                     {!! Form::label('code','Code:') !!}
                     {!! Form::text('code',null,['class'=>'form-control']) !!}
                 </div>
+                <div class="form-group">
+                    {!! Form::label('mainpicture','Foto:') !!}
+                    {!! Form::file('mainpicture',null,['class'=>'form-control']) !!}
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -53,10 +57,25 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-
         </div>
        <div class="col-lg-6">
             <div class="row mb-4">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card">
+                                @if(empty($product->mainpicture))
+                                    <img class="card-img-top"
+                                         src='http://place-hold.it/400x400'
+                                         alt="Generated image">
+                                @else
+                                    <img class="card-img-top" src="{{url('uploads/products/'.$product->mainpicture)}}"
+                                         alt="{{$product->mainpicture}}">
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @php($i=0)
                 @foreach($allData as $oneData)
                     @foreach($oneData->colors as $color)
@@ -108,16 +127,56 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    @php($photos=\App\Photo::where('product_color_id',$color->pivot->id)->get())
+                                                    @foreach($photos as $photo)
+                                                    <div class="col-4">
+                                                        <div class="card card-body my-2">
+
+                                                            <div class="card">
+                                                                <img class="card-img-top img-responsive"
+                                                                     src="{{url('uploads/productcolors/'.$photo->name)}}"
+                                                                     alt="{{$photo->name}}">
+                                                                @if(empty($photo->name))
+                                                                    <div class="card-body">
+                                                                        <p class="card-text">
+                                                                            <strong>Leeg</strong>
+                                                                        </p>
+                                                                    </div>
+                                                                    @else
+                                                                    <div class="card-body">
+                                                                        <p class="card-text">
+                                                                            <strong>{{ $photo->description}}</strong>
+                                                                        </p>
+                                                                    </div>
+                                                                @endif
+
+                                                                {!! Form::open(['method'=>'DELETE',
+                                                        'action'=>['PhotoController@destroy',
+                                                        $photo->id]])!!}
+                                                                {!! Form::button('<i class="fas fa-trash-alt"></i>',['class'=>'btn create text-danger btn-sm',
+                                                                'type'=>'submit']) !!}
+                                                                {!! Form::close() !!}
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+
+                                            </div>
+
                                         </div>
                                     </div>
+
                                 @endif
                             @endforeach
                     @endforeach
                 @endforeach
             </div>
        </div>
-        <div class="col-lg-9">
-        {!! Form::open(['method'=>'POST','action'=>['ProductController@store']])!!}
+        <div class="col-lg-6">
           <p>
               <a class="btn btn-inverse-outline-dark btn-block" data-toggle="collapse"
                  href="#collapse{{$i+1}}"
@@ -141,6 +200,12 @@
                           {!! Form::label('lot_id','Batch:') !!}
                           {!! Form::select('lot_id',$lotsSelect,null,['class'=>'form-control','required'])
                            !!}
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-12">
+                          {!! Form::label('description','Beschrijving foto:') !!}
+                          {!! Form::text('description',null,['class'=>'form-control']) !!}
                       </div>
                   </div>
                   <div class="form-row">

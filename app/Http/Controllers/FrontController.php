@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Photo;
+use App\Product;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -15,18 +17,27 @@ class FrontController extends Controller
         return view('welcome', compact('brands'));
     }
 
-    public function sales(){
-       return view('sale');
-    }
     public function face(){
-        return view('face');
+        /*alle producten die getoond mogen worden on FACE*/
+        $products=Product::where('is_active',1)->where('category_id',1)->paginate(9);
+        return view('face',compact('products'));
     }
+
     public function lips(){
-        return view('lips');
+        /*alle producten die getoond mogen worden on FACE*/
+        $products=Product::where('is_active',1)->where('category_id',2)->paginate(9);
+        return view('face',compact('products'));
     }
     public function eyes(){
-        return view('eyes');
+        /*alle producten die getoond mogen worden on FACE*/
+        $products=Product::where('is_active',1)->where('category_id',3)->paginate(9);
+        return view('face',compact('products'));
     }
+
+    public function details(){
+        return view('details');
+    }
+
     public function login(){
         return view('initialize');
     }

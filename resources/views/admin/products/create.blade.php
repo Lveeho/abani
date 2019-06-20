@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="mb-3">Nieuw product</h1>
     <hr>
-    {!! Form::open(['method'=>'POST','action'=>'ProductController@store']) !!}
+    {!! Form::open(['method'=>'POST','action'=>'ProductController@store','files'=>true]) !!}
     <div class="row">
         <div class="col-lg-12">
             <div class="form-row">
@@ -48,6 +48,10 @@
                     {!! Form::label('is_active','Tonen in shop') !!}
                     {!! Form::select('is_active',array(1=>'Ja',0=>'Nee'),null,['class'=>'form-control',
                     'required']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('mainpicture','Foto:') !!}
+                    {!! Form::file('mainpicture',null,['class'=>'form-control']) !!}
                 </div>
             </div>
             <div class="form-group">

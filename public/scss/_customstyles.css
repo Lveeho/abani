@@ -430,7 +430,7 @@ footer h1, footer h2{
 .pagination {
   display: inline-block;
 }
-.pagination a {
+/*.pagination page-item {
   color: black;
   float: left;
   text-decoration: none;
@@ -444,6 +444,10 @@ footer h1, footer h2{
 }
 .pagination a:hover:not(.active) {
   background-color: #ddd;
+}*/
+.page-item.active{
+    color:black !important;
+    background-color: white !important;
 }
 
 /*DETAILS*/

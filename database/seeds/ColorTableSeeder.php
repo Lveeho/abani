@@ -13,20 +13,15 @@ class ColorTableSeeder extends Seeder
     public function run()
     {
         //
+
         DB::table('colors')->insert([
-            'color'=>'metallic',
+            'color'=>'beige',
         ]);
         DB::table('colors')->insert([
-            'color'=>'nude',
+            'color'=>'peachpuff',
         ]);
         DB::table('colors')->insert([
-            'color'=>'peach',
-        ]);
-        DB::table('colors')->insert([
-            'color'=>'rose gold',
-        ]);
-        DB::table('colors')->insert([
-            'color'=>'chrome',
+            'color'=>'rosybrown',
         ]);
         DB::table('colors')->insert([
             'color'=>'black',
@@ -68,7 +63,7 @@ class ColorTableSeeder extends Seeder
             'color'=>'brown',
         ]);
         DB::table('colors')->insert([
-            'color'=>'bronze',
+            'color'=>'gold',
         ]);
     }
 }

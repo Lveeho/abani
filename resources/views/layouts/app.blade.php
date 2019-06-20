@@ -26,13 +26,12 @@
                 <a class="nav-item nav-link text-uppercase active mr-xl-5 mr-lg-2" href="{{url('index')}}">Home <span
                         class="sr-only">
                         (current)</span></a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('sales')}}">Sale</a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('face')}}">Face</a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('lips')}}">Lips</a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('eyes')}}">Eyes</a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('404')}}">Brands</a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('404')}}">portfolio</a>
-                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2" href="{{url('404')}}">blogs</a>
+                @php($categories=\App\Category::all())
+                @foreach($categories as $category)
+                <a class="nav-item nav-link text-uppercase mr-xl-5 mr-lg-2"
+                   href="{{url("$category->title")}}">{{$category->title}}</a>
+                @endforeach
+
             </div>
         </div>
         <div class="d-flex">

@@ -62,23 +62,35 @@ class ProductController extends Controller
                 ->insert(['color_id'=>$request->color_id,'product_id'=>$request->product_id,
                     'lot_id'=>$request->lot_id]);
             $subProduct=DB::table('color_product')
-               ->latest()->value('id');
-
-            $picture=$request->file('name');
-            dd($picture);
-            if(!empty($picture)){
-                $extension=$picture->getClientOriginalExtension();
-                Storage::disk('products')->put($picture->getFilename().'.'.$extension,File::get($picture));
+                ->orderBy('id','DESC')->first();
+            $subPicture=$request->file('name');
+            if(!empty($subPicture)){
+                $extension=$subPicture->getClientOriginalExtension();
+                Storage::disk('productcolors')->put($subPicture->getFilename().'.'.$extension,File::get($subPicture));
                 $newImage=new Photo();
-                $newImage->name=$picture->getFilename().'.'.$extension;/*phpF38.tmp.png*/
-                $newImage->product_color_id=$subProduct;
+                $newImage->name=$subPicture->getFilename().'.'.$extension;/*phpF38.tmp.png*/
+                $newImage->product_color_id=$subProduct->id;
+                $newImage->description=$request->description;
                 $newImage->save();
             }
+
             return redirect()->back();
         }
 
-
-        Product::create($request->all());
+        $picture=$request->file('mainpicture');
+        $extension=$picture->getClientOriginalExtension();
+        Storage::disk('products')->put($picture->getFilename().'.'.$extension,File::get($picture));
+        $product=new Product();
+        $product->producttype_id=$request->producttype_id;
+        $product->name=$request->name;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->brand_id=$request->brand_id;
+        $product->category_id=$request->category_id;
+        $product->code=$request->code;
+        $product->mainpicture=$picture->getFilename().'.'.$extension;
+        $product->is_active=$request->is_active;
+        $product->save();
         $product=Product::paginate(15);
         return redirect()->route('products.index',compact('product'));
     }
@@ -133,12 +145,36 @@ class ProductController extends Controller
     {
         //
         $product=Product::findOrFail($id);
-        $product->update($request->all());
-
+        $picture=$request->file('mainpicture');
+        if(!empty($picture)){
+            $extension=$picture->getClientOriginalExtension();
+            Storage::disk('products')->put($picture->getFilename().'.'.$extension,File::get($picture));
+            $product->producttype_id=$request->producttype_id;
+            $product->name=$request->name;
+            $product->description=$request->description;
+            $product->price=$request->price;
+            $product->brand_id=$request->brand_id;
+            $product->category_id=$request->category_id;
+            $product->code=$request->code;
+            $product->mainpicture=$picture->getFilename().'.'.$extension;
+            $product->is_active=$request->is_active;
+            $product->update();
+        }
         if(isset($request->color_id)){
             DB::table('color_product')
                 ->where('id',$request->pivot_id)
                 ->update(['color_id'=>$request->color_id,'lot_id'=>$request->lot_id]);
+            $picture=$request->file('name');
+            if(!empty($picture)) {
+                $extension = $picture->getClientOriginalExtension();
+                Storage::disk('productcolors')->put($picture->getFilename() . '.' . $extension, File::get($picture));
+                $newImage = new Photo();
+                $newImage->name = $picture->getFilename() . '.' . $extension;/*phpF38.tmp.png*/
+                $newImage->product_color_id = $request->pivot_id;
+                $newImage->description=$request->description;
+                $newImage->save();
+            }
+
         }
 
         return redirect()->back();

@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/index','FrontController@index');
-Route::get('/sales','FrontController@sales');
 Route::get('/face','FrontController@face');
 Route::get('/lips','FrontController@lips');
 Route::get('/eyes','FrontController@eyes');
 Route::get('/shoppingcart','FrontController@shoppingcart');
 Route::get('/wishlist','FrontController@wishlist');
+Route::get('/details','FrontController@details')->name('details');
 
 
 
@@ -35,6 +35,7 @@ Route::group(['middleware'=>'admin'],function() {
     Route::resource('/admin/colors','ColorController');
     Route::resource('/admin/products','ProductController');
     Route::resource('/admin/lots','LotController');
+    Route::resource('/admin/photos','PhotoController');
 });
 
 
