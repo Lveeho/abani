@@ -6,6 +6,7 @@ use App\Brand;
 use App\Photo;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -33,7 +34,14 @@ class FrontController extends Controller
 
     public function details($id){
         $product=Product::findorFail($id);
-        return view('details',compact('product'));
+        $photoIds=DB::table('color_product')
+            ->where('product_id',$id)
+            ->select('id')
+            ->get();
+
+
+
+        return view('details',compact('product','photoIds'));
     }
 
     public function login(){

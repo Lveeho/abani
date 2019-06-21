@@ -15,94 +15,98 @@
 		<section id="details" class="row">
 			<div class="col-lg-12 col-md-10 offset-md-1">
 				<div class="row">
-					<div id="detailsphoto" class="col-lg-5 pl-lg-0 pr-lg-4 p-0 pt-4 mt-2">
-						<img src="assets/images/detailpicbody.jpg" class="img-fluid px-5 mx-auto d-flex" alt="">
-						<div id="myCarousel" class="carousel slide py-5" data-ride="carousel" data-interval="0">
-							<!-- Carousel indicators -->
-							<ol class="carousel-indicators">
-								<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-								<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-							</ol>
-							<!-- Wrapper for carousel items -->
-							<div class="carousel-inner">
-								<div class="item carousel-item">
-									<div class="row">
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="{{asset('assets/images/detailpicbody.jpg')}}"
-                                                         class="img-responsive
-													 img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item carousel-item active">
-									<div class="row">
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="thumb-wrapper">
-												<div class="img-box">
-													<img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							
-							</div>
-							<!-- Carousel controls -->
-							<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
-							</a>
-							<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-								<i class="fa fa-angle-right"></i>
-							</a>
-						</div>
-					
-					</div>
+
+
+                            <div id="detailsphoto" class="col-lg-5 pl-lg-0 pr-lg-4 p-0 pt-4 mt-2">
+                                @if(empty($product->mainpicture))
+                                    <img class="img-fluid px-5 mx-auto d-flex"
+                                         src='http://place-hold.it/400x400'
+                                         alt="Generated image">
+                                @else
+                                    <img src="{{url('uploads/products/'.$product->mainpicture)}}"
+                                         class="img-fluid px-5 mx-auto d-flex" alt="">
+                                @endif
+
+
+                                <div id="myCarousel" class="carousel slide py-5" data-ride="carousel" data-interval="0">
+                                    <!-- Carousel indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                                        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                                    </ol>
+                                    <!-- Wrapper for carousel items -->
+                                    <div class="carousel-inner">
+
+                                        <div class="item carousel-item active">
+                                            <div class="row">
+                                                @foreach($photoIds as $photoId)
+                                                    @php($uniquePhotos=\App\Photo::where('id',$photoId->id)->get())
+                                                        @foreach($uniquePhotos as $uniquePhoto)
+                                                            <div class="col-3">
+                                                                <div class="thumb-wrapper">
+                                                                    <div class="img-box">
+                                                                        @if(empty($uniquePhoto->name))
+                                                                            <img class="img-responsive img-fluid mb-2"
+                                                                                 src='http://place-hold.it/400x400'
+                                                                                 alt="Generated image">
+                                                                        @else
+                                                                            <img src="{{url('uploads/productcolors/'.$uniquePhoto->name)}}"
+                                                                                 class="img-responsive img-fluid mb-2"
+                                                                                 alt="">
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                @endforeach
+
+                                            </div>
+                                        </div>
+
+                                        {{--<div class="item carousel-item active">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <div class="thumb-wrapper">
+                                                        <div class="img-box">
+                                                            <img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="thumb-wrapper">
+                                                        <div class="img-box">
+                                                            <img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="thumb-wrapper">
+                                                        <div class="img-box">
+                                                            <img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="thumb-wrapper">
+                                                        <div class="img-box">
+                                                            <img src="assets/images/detailpicbody.jpg" class="img-responsive img-fluid" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>--}}
+                                    </div>
+                                    <!-- Carousel controls -->
+                                    <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                    <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+
 					<div id="detailstext" class="col-lg-7 pl-4" >
 						<h1 class="text-uppercase text-dark pt-5 pb-2 border-bottom">product details</h1>
 						<div id="detailrating" class="d-flex border-bottom pt-3">
@@ -119,11 +123,33 @@
 						</div>
 						<div id="productdetails" class="border-bottom">
 							<h2 class="text-dark pt-4">
-								<strong><span>€ 25</span></strong>
+								<strong><span>{{$product->price}}</span></strong>
 							</h2>
-							<h3 class="text-dark"> <em> Availability: <span style="color: greenyellow"><i
-									class="fas fa-check-circle"></i>
-								in stock</span></em></h3>
+                            @php($totalStock=0)
+                            @foreach($product->lots as $lot)
+                                @php($totalStock+=$lot->pivot->stock)
+                            @endforeach
+                            <h3 class="text-dark">
+                                <em> Availability:
+                                    @if($totalStock<1)
+                                        <span style="color: red">
+                                            <i class="fas fa-check-circle"></i>
+                                            out of stock
+                                        </span>
+                                    @elseif($totalStock<50)
+                                        <span style="color: darkorange">
+                                            <i class="fas fa-check-circle"></i>
+                                            low in stock
+                                        </span>
+                                    @else
+                                        <span style="color: greenyellow">
+                                            <i class="fas fa-check-circle"></i>
+                                            in stock
+                                        </span>
+                                    @endif
+                                </em>
+                            </h3>
+
 							<h3 class="text-dark pt-1 pb-3"> Product code: <strong>{{$product->code}}</strong> </h3>
 						</div>
 						<div id="selectordetails" class="row">
@@ -133,23 +159,15 @@
 										<p class="control-label requiredStar text-dark"> Color</p>
 										<div class="mt-4 mt-lg-0">
 											<ul class="list-inline mb-0 colours-wrapper">
+                                                @foreach($product->colors as $color)
 												<li class="list-inline-item">
-													<label for="colour_sidebar_Blue" style="background-color: #668cb9"
-													       data-allow-multiple="" class="btn-colour active"> </label>
-													<input type="checkbox" name="colour" value="value_sidebar_Blue" id="colour_sidebar_Blue" class="input-invisible">
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <span class="color" style="color: {{$color->color}}">
+                                                            <i class="fas fa-circle"></i></span>
+                                                    </label>
 												</li>
-												<li class="list-inline-item">
-													<label for="colour_sidebar_White" style="background-color: #fff" data-allow-multiple="" class="btn-colour"> </label>
-													<input type="checkbox" name="colour" value="value_sidebar_White" id="colour_sidebar_White" class="input-invisible">
-												</li>
-												<li class="list-inline-item">
-													<label for="colour_sidebar_Violet" style="background-color: #8b6ea4" data-allow-multiple="" class="btn-colour"> </label>
-													<input type="checkbox" name="colour" value="value_sidebar_Violet" id="colour_sidebar_Violet" class="input-invisible">
-												</li>
-												<li class="list-inline-item">
-													<label for="colour_sidebar_Red" style="background-color: #dd6265" data-allow-multiple="" class="btn-colour"> </label>
-													<input type="checkbox" name="colour" value="value_sidebar_Red" id="colour_sidebar_Red" class="input-invisible">
-												</li>
+                                                    @endforeach
 											</ul>
 										</div>
 									</form>
@@ -181,7 +199,7 @@
 						<div id="sharedetails" class="row pt-3 pt-lg-0">
 							<div class="col-12 d-flex">
 								<p class="text-dark pr-3">Share:</p>
-								<a href="#" ><i class="fab fa-facebook-f fa-1x fa-fw py-1 rounded mr-2"></i></a>
+								<a href="" ><i class="fab fa-facebook-f fa-1x fa-fw py-1 rounded mr-2"></i></a>
 								<a href="#" ><i class="fab fa-twitter fa-1x fa-fw py-1 rounded mr-2"></i></a>
 								<a href="#"><i class="fab fa-youtube fa-1x fa-fw py-1 rounded mr-2"></i></a>
 								<a href="#"><i class="fab fa-instagram fa-1x fa-fw py-1 rounded mr-2"></i></a>
