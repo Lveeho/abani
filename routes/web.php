@@ -11,14 +11,21 @@
 |
 */
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cart','CartController@index')->name('cart.index');
+Route::post('/cart','CartController@store')->name('cart.store');
+Route::get('empty',function(){
+    Cart::destroy();
+});
+
 Route::get('/index','FrontController@index');
 Route::get('/face','FrontController@face');
 Route::get('/lips','FrontController@lips');
 Route::get('/eyes','FrontController@eyes');
-Route::get('/shoppingcart','FrontController@shoppingcart');
 Route::get('/wishlist','FrontController@wishlist');
 Route::get('/{id}','FrontController@details')->name('details');
 

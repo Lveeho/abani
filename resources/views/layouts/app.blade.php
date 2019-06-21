@@ -61,7 +61,7 @@
             @endif
 
 
-            <a href="{{url('shoppingcart')}}" class="btn btn-nav" role="button">
+            <a href="{{route('cart.index')}}" class="btn btn-nav" role="button">
                 <i class="fas fa-shopping-bag"></i>
             </a>
 

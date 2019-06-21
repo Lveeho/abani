@@ -47,9 +47,7 @@ class FrontController extends Controller
     public function login(){
         return view('initialize');
     }
-    public function shoppingcart(){
-        return view('shoppingcart');
-    }
+
     public function wishlist(){
         return view ('wishlist');
     }

@@ -15,9 +15,18 @@
 			<div class="col-lg-8 offset-lg-2">
 				<h2 class="text-uppercase text-dark py-5 ">Shopping Cart</h2>
 				<div class="row mb-5 text-dark">
+
 					<div class="col-lg-8">
 						<div class="cart">
+
 							<div class="cart-header text-center px-0">
+                                @if(session()->has('success_message'))
+                                    <div class="alert alert-success">
+                                        {{session()->get('success_message')}}
+                                    </div>
+                                @endif
+
+
 								<div class="row text-uppercase">
 									<div class="col-md-4"><strong>Items</strong></div>
 									<div class="col-md-8 d-none d-md-block">
@@ -31,6 +40,7 @@
 								</div>
 							</div>
 							<div class="cart-body">
+                                @foreach(Cart::content() as $item)
 								<!-- Product-->
 								<div class="cart-item">
 									<div class="row d-flex align-items-center text-left text-center">
@@ -76,6 +86,7 @@
 										</div>
 									</div>
 								</div>
+                                @endforeach
 								<!-- Product-->
 								<div class="cart-item">
 									<div class="row d-flex align-items-center text-left text-center">
@@ -166,6 +177,20 @@
 									</div>
 								</div>
 							</div>
+                            @if(count($errors)>0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if(Cart::count()>0)
+                                <p>{{Cart::count()}} item(s) in Shopping Cart</p>
+                            @else
+                                <p>No items in cart</p>
+                                @endif
 						</div>
 						<div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a
                             href="categories.blade.php" class="btn btn-link text-muted"><i
