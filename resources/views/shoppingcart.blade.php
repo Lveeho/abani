@@ -44,12 +44,29 @@
 								<!-- Product-->
 								<div class="cart-item">
 									<div class="row d-flex align-items-center text-left text-center">
-										<div class="col-12 col-md-4"><a href="#"
-										                                class="cart-remove close mt-3 d-md-none"><i class="fa fa-times">                                                                                   </i></a>
-											<div class="d-flex align-items-center"><a href="details.blade.php"><img
-													src="assets/images/facegrid3.jpg" alt="..." class="cart-item-img"></a>
-												<div class="cart-title text-left ml-2"><a href="details.blade.php"
-												                                     class="text-uppercase text-dark"><strong>Product 1</strong></a><br><span class="text-muted text-sm">Color: Green</span>
+										<div class="col-12 col-md-4">
+                                            <a href="#" class="cart-remove close mt-3 d-md-none">
+                                                <i class="fa fa-times">
+                                                </i></a>
+											<div class="d-flex align-items-center">
+                                                <a href="{{route('details',$item->id)}}">
+                                                    @if(empty($item->mainpicture))
+                                                        <img class="cart-item-img"
+                                                             src='http://place-hold.it/400x400'
+                                                             alt="Generated image">
+                                                    @else
+                                                        <img class="card-img-top image border shadow"
+                                                             src="{{url('uploads/products/'.$item->mainpicture)}}"
+                                                             alt="cart-item-img">
+                                                    @endif
+
+                                                </a>
+												<div class="cart-title text-left ml-2">
+                                                    <a href="{{route('details',$item->id)}}" class="text-uppercase text-dark">
+                                                        <strong>{{$item->name}}</strong>
+                                                    </a>
+                                                    <br>
+                                                    <span class="text-muted text-sm">Color: Green</span>
 												</div>
 											</div>
 										</div>
@@ -59,7 +76,8 @@
 													<div class="row">
 														<div class="col-6 d-md-none text-muted text-left">Price per
 														                                             item</div>
-														<div class="col-6 col-md-12 text-right text-center">€65.00</div>
+														<div class="col-6 col-md-12 text-right
+														text-center">{{$item->price}}</div>
 													</div>
 												</div>
 												<div class="col-md-4">
@@ -67,9 +85,10 @@
 														<div class="d-md-none col-6 col-sm-9 text-muted text-left">Quantity</div>
 														<div class="col-6 col-sm-3 col-md-12">
 															<div class="d-flex align-items-center">
-																<div class="btn btn-items btn-items-decrease">-</div>
-																<input type="text" value="4" class="form-control text-center border-0 border-md input-items">
-																<div class="btn btn-items btn-items-increase">+</div>
+                                                                <div class="input-group input-number-group">
+                                                                    <input class="input-number swatch" type="number"
+                                                                           value="1" min="0" max="10">
+                                                                </div>
 															</div>
 														</div>
 													</div>
@@ -80,102 +99,23 @@
 														<div class="col-6 col-md-12 text-right text-center">€260.00</div>
 													</div>
 												</div>
-												<div class="col-2 d-none d-md-block text-center p-0"><a href="#"
-												                                                    class="cart-remove"> <i class="delete fa fa-times"></i></a></div>
+												<div class="col-2 d-none d-md-block text-center p-0">
+                                                    <form action="{{route('cart.destroy',$item->rowId)}}" method="POST">
+                                                        {{csrf_field()}}
+                                                        {{method_field('DELETE')}}
+                                                        <button type="submit" class="cart-remove" style="background:
+                                                        none;border: none">
+                                                            <i class="fa fa-times">
+                                                            </i>
+                                                        </button>
+                                                    </form>
+                                                </div>
 											</div>
 										</div>
 									</div>
 								</div>
                                 @endforeach
-								<!-- Product-->
-								<div class="cart-item">
-									<div class="row d-flex align-items-center text-left text-center">
-										<div class="col-12 col-md-4"><a href="#"
-										                                class="cart-remove close mt-3 d-md-none"><i class="fa fa-times">                                                                                   </i></a>
-											<div class="d-flex align-items-center"><a href="details.blade.php"><img
-													src="assets/images/facegrid4.jpg" alt="..." class="cart-item-img"></a>
-												<div class="cart-title text-left ml-2"><a href="details.blade.php"
-												                                     class="text-uppercase text-dark"><strong>Product 2</strong></a><br><span class="text-muted text-sm">Color: Medium</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-md-8 mt-4 mt-md-0">
-											<div class="row align-items-center">
-												<div class="col-md-3">
-													<div class="row">
-														<div class="col-6 d-md-none text-muted text-left">Price per
-														                                             item</div>
-														<div class="col-6 col-md-12 text-right text-center">€55.00</div>
-													</div>
-												</div>
-												<div class="col-md-4">
-													<div class="row align-items-center">
-														<div class="d-md-none col-6 col-sm-9 text-muted text-left">
-															Quantity</div>
-														<div class="col-6 col-sm-3 col-md-12">
-															<div class="d-flex align-items-center">
-																<div class="btn btn-items btn-items-decrease">-</div>
-																<input type="text" value="3" class="form-control text-center border-0 border-md input-items">
-																<div class="btn btn-items btn-items-increase">+</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-3">
-													<div class="row">
-														<div class="col-6 d-md-none text-muted text-left">Total price
-														</div>
-														<div class="col-6 col-md-12 text-right text-center">€165.00</div>
-													</div>
-												</div>
-												<div class="col-2 d-none d-md-block text-center"><a href="#" class="cart-remove"> <i class="delete fa fa-times"></i></a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Product-->
-								<div class="cart-item">
-									<div class="row d-flex align-items-center text-left text-center">
-										<div class="col-12 col-md-4"><a href="#"
-										                                class="cart-remove close mt-3 d-md-none"><i class="fa fa-times">                                                                                   </i></a>
-											<div class="d-flex align-items-center"><a href="details.blade.php"><img
-													src="assets/images/facegrid2.jpg" alt="..." class="cart-item-img"></a>
-												<div class="cart-title text-left ml-2"><a href="details.blade.php"
-												                                     class="text-uppercase text-dark"><strong>Product 3</strong></a><br><span class="text-muted text-sm">Color: Medium</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-md-8 mt-4 mt-md-0">
-											<div class="row align-items-center">
-												<div class="col-md-3">
-													<div class="row">
-														<div class="col-6 d-md-none text-muted text-left">Price per item</div>
-														<div class="col-6 col-md-12 text-right text-center">€55.00</div>
-													</div>
-												</div>
-												<div class="col-md-4">
-													<div class="row align-items-center">
-														<div class="d-md-none col-6 col-sm-9 text-muted text-left">Quantity</div>
-														<div class="col-6 col-sm-3 col-md-12">
-															<div class="d-flex align-items-center">
-																<div class="btn btn-items btn-items-decrease">-</div>
-																<input type="text" value="3" class="form-control text-center border-0 border-md input-items">
-																<div class="btn btn-items btn-items-increase">+</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-3">
-													<div class="row">
-														<div class="col-6 d-md-none text-muted text-left">Total price </div>
-														<div class="col-6 col-md-12 text-right text-center">€165.00</div>
-													</div>
-												</div>
-												<div class="col-2 d-none d-md-block text-center"><a href="#" class="cart-remove"> <i class="delete fa fa-times"></i></a></div>
-											</div>
-										</div>
-									</div>
-								</div>
+
 							</div>
                             @if(count($errors)>0)
                                 <div class="alert alert-danger">
@@ -193,7 +133,7 @@
                                 @endif
 						</div>
 						<div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a
-                            href="categories.blade.php" class="btn btn-link text-muted"><i
+                            href="{{route('face')}}" class="btn btn-link text-muted"><i
 								class="fa fa-chevron-left"></i> Continue Shopping</a><a href="checkout1.blade.php"
 						                                                                class="btn btn-pink">Proceed to checkout <i class="fa fa-chevron-right"></i>                                                     </a></div>
 					</div>
@@ -205,10 +145,12 @@
 							<div class="block-body bg-light pt-1">
 								<p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
 								<ul class="order-summary mb-0 list-unstyled">
-									<li class="order-summary-item"><span>Order Subtotal </span><span>€390.00</span></li>
+									<li class="order-summary-item">
+                                        <span>Order Subtotal</span><span>{{Cart::subtotal()}}</span></li>
 									<li class="order-summary-item"><span>Shipping and handling</span><span>€10.00</span></li>
-									<li class="order-summary-item"><span>Tax</span><span>€0.00</span></li>
-									<li class="order-summary-item border-0"><span>Total</span><strong class="order-summary-total">€400.00</strong></li>
+									<li class="order-summary-item"><span>Tax</span><span>{{Cart::tax()}}</span></li>
+									<li class="order-summary-item border-0"><span>Total</span><strong
+                                            class="order-summary-total">{{Cart::total()}}</strong></li>
 								</ul>
 							</div>
 						</div>

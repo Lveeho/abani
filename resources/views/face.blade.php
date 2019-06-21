@@ -68,6 +68,8 @@
                                                     <input type="hidden" name="id" value="{{$product->id}}">
                                                     <input type="hidden" name="name" value="{{$product->name}}">
                                                     <input type="hidden" name="price" value="{{$product->price}}">
+                                                    <input type="hidden" name="mainpicture"
+                                                           value="{{$product->mainpicture}}">
                                                     <button type="submit" class="btn btn-add flex-fill text-uppercase
                                                      text-white pr-3">
                                                         <i class="fas fa-shopping-bag px-2 py-2"></i> add to cart

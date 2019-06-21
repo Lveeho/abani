@@ -63,10 +63,25 @@
 
             <a href="{{route('cart.index')}}" class="btn btn-nav" role="button">
                 <i class="fas fa-shopping-bag"></i>
+                <span class="badge badge-info">
+                    @if(Cart::instance('default')->count()>0)
+                    <span>
+                        {{Cart::instance('default')->count()}}
+                    </span>
+                        @endif
+                </span>
+
             </a>
 
             <a href="{{url('wishlist')}}" class="btn btn-nav" role="button">
                 <i class="fab fa-gratipay"></i>
+                <span class="badge badge-info">
+                    @if(Cart::instance('wishlist')->count()>0)
+                        <span>
+                            {{Cart::instance('wishlist')->count()}}
+                        </span>
+                    @endif
+                </span>
             </a>
         </div>
 

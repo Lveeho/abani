@@ -184,15 +184,31 @@
 							</div>
 							<div class="col-lg-12 p-0 py-lg-3 mt-3">
 								<div class="d-flex pr-3">
-									<a href="404.blade.php" class="btn-pink btn-add flex-fill"
-                                       role="button" >
-										<div class="text-uppercase text-white pr-md-3">
-											<i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
-										</div>
-									</a>
-									<a href="wishlist.blade.php" class=" btn-pink d-flex align-items-center" role="button">
-										<i class="text-white far fa-heart py-2 px-2"></i>
-									</a>
+                                    <form action="{{route('cart.store')}}" method="POST" >
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                        <input type="hidden" name="name" value="{{$product->name}}">
+                                        <input type="hidden" name="price" value="{{$product->price}}">
+                                        <input type="hidden" name="mainpicture"
+                                               value="{{$product->mainpicture}}">
+                                        <button type="submit" class="btn-pink btn-add text-uppercase
+                                                     text-white pr-3">
+                                            <i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
+                                        </button>
+                                    </form>
+                                    <form action="{{route('wishlist.store')}}" method="POST" >
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                        <input type="hidden" name="name" value="{{$product->name}}">
+                                        <input type="hidden" name="price" value="{{$product->price}}">
+                                        <input type="hidden" name="mainpicture"
+                                               value="{{$product->mainpicture}}">
+                                        <button type="submit" class="btn-pink d-flex
+									align-items-center">
+                                            <i class="text-white far fa-heart py-2 px-2"></i>
+                                        </button>
+                                    </form>
+
 								</div>
 							</div>
 						</div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
-class CartController extends Controller
+class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CartController extends Controller
     public function index()
     {
         //
-        return view('shoppingcart');
+        return view('wishlist');
     }
 
     /**
@@ -37,15 +37,10 @@ class CartController extends Controller
     public function store(Request $request)
     {
         //
-        $duplicates=Cart::search(function($cartItem, $rowId)use ($request){
-            return $cartItem->id===$request->id;
-        });
-        if($duplicates->isNotEmpty()){
-            return redirect()->route('cart.index')->with('success_message','Item is already in your cart!');
-        }
 
-        Cart::add($request->id,$request->name,1,$request->price,$request->mainpicture)->associate('App\Product');
-        return redirect()->route('cart.index')->with('success_message','Item was added to your cart!');
+        Cart::instance('wishlist')->add($request->id,$request->name,1,$request->price,$request->mainpicture)->associate
+        ('App\Product');
+        return redirect()->route('wishlist.index')->with('success_message','Item was added to your cart!');
 
     }
 
@@ -92,7 +87,7 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
-        Cart::remove($id);
+        Cart::instance('wishlist')->remove($id);
         return back()->with('success_message','Item has been removed!');
     }
 }

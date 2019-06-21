@@ -18,15 +18,17 @@ Route::get('/', function () {
 });
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::post('/cart','CartController@store')->name('cart.store');
-Route::get('empty',function(){
-    Cart::destroy();
-});
+Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
 
-Route::get('/index','FrontController@index');
-Route::get('/face','FrontController@face');
-Route::get('/lips','FrontController@lips');
-Route::get('/eyes','FrontController@eyes');
-Route::get('/wishlist','FrontController@wishlist');
+Route::get('/wishlist','WishlistController@index')->name('wishlist.index');
+Route::post('/wishlist','WishlistController@store')->name('wishlist.store');
+Route::delete('/wishlist/{product}','WishlistController@destroy')->name('wishlist.destroy');
+
+
+Route::get('/index','FrontController@index')->name('index');
+Route::get('/face','FrontController@face')->name('face');
+Route::get('/lips','FrontController@lips')->name('lips');
+Route::get('/eyes','FrontController@eyes')->name('eyes');
 Route::get('/{id}','FrontController@details')->name('details');
 
 

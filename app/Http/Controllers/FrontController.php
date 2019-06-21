@@ -48,9 +48,7 @@ class FrontController extends Controller
         return view('initialize');
     }
 
-    public function wishlist(){
-        return view ('wishlist');
-    }
+
 
 
 
