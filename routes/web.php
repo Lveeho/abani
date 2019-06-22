@@ -28,6 +28,7 @@ Route::get('empty',function(){
 });
 
 Route::get('/index','FrontController@index')->name('index');
+Route::get('/login','FrontController@index')->name('login');
 Route::get('/face','FrontController@face')->name('face');
 Route::get('/lips','FrontController@lips')->name('lips');
 Route::get('/eyes','FrontController@eyes')->name('eyes');

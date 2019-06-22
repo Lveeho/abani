@@ -6,6 +6,7 @@ use App\Brand;
 use App\Photo;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
@@ -49,7 +50,12 @@ class FrontController extends Controller
     }
 
     public function checkout(){
-        return view('checkout1');
+        $user=Auth::user();
+        $addresses=$user->addresses;
+        $cities=$user->cities;
+        $regions=$user->regions;
+        $countries=$user->countries;
+        return view('checkout1',compact('addresses','cities','regions','countries','user'));
     }
 
 

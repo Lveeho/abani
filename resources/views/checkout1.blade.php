@@ -69,6 +69,7 @@
 								</div>
 								<div class="block-body">
                                     @if(\Illuminate\Support\Facades\Auth::check())
+                                    @else
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <h4 class="text-uppercase mb-3">checkout as a guest <br>or register</h4>
@@ -115,52 +116,82 @@
 
                                             </div>
                                         </div>
-                                        @else
-
-                                        @endif
+                                    @endif
 								</div>
-								
+
 								<!-- Invoice Address-->
 								<div class="block-header">
-									<h3 class="text-uppercase mb-0">Invoice address                    </h3>
+									<h3 class="text-uppercase mb-0">Invoice address</h3>
 								</div>
 								<div class="block-body">
-									<div class="row">
-										<div class="form-group col-md-6">
-											<label for="fullname_invoice" class="form-label">Full Name</label>
-											<input type="text" name="fullname_invoice" placeholder="Joe Black" id="fullname_invoice" class="form-control">
-										</div>
-										<div class="form-group col-md-6">
-											<label for="emailaddress_invoice" class="form-label">Email Address</label>
-											<input type="text" name="emailaddress_invoice" placeholder="joe.black@gmail.com" id="emailaddress_invoice" class="form-control">
-										</div>
-										<div class="form-group col-md-6">
-											<label for="street_invoice" class="form-label">Street</label>
-											<input type="text" name="street_invoice" placeholder="123 Main St." id="street_invoice" class="form-control">
-										</div>
-										<div class="form-group col-md-6">
-											<label for="city_invoice" class="form-label">City</label>
-											<input type="text" name="city_invoice" placeholder="City" id="city_invoice" class="form-control">
-										</div>
-										<div class="form-group col-md-6">
-											<label for="zip_invoice" class="form-label">ZIP</label>
-											<input type="text" name="zip_invoice" placeholder="Postal code" id="zip_invoice" class="form-control">
-										</div>
-										<div class="form-group col-md-6">
-											<label for="state_invoice" class="form-label">State</label>
-											<input type="text" name="state_invoice" placeholder="State" id="state_invoice" class="form-control">
-										</div>
-										<div class="form-group col-md-6">
-											<label for="phonenumber_invoice" class="form-label">Phone Number</label>
-											<input type="text" name="phonenumber_invoice" placeholder="Phone Number" id="phonenumber_invoice" class="form-control">
-										</div>
-										<div class="form-group col-12 mt-3">
-											<div class="custom-control custom-checkbox">
-												<input id="show-shipping-address" type="checkbox" name="clothes-brand" class="custom-control-input">
-												<label for="show-shipping-address" data-toggle="collapse" data-target="#shippingAddress"  aria-controls="shippingAddress" class="custom-control-label align-middle">Use a different shipping address</label>
-											</div>
-										</div>
-									</div>
+                                    @foreach($addresses as $address)
+                                        @foreach($cities as $city)
+                                            @foreach($regions as $region)
+                                                @php($i=0)
+                                                @foreach($countries as $country)
+                                                    @php($i++)
+                                                    @if($country->pivot->id ===$region->pivot->id and
+                                                    $region->pivot->id===$city->pivot->id and
+                                                    $city->pivot->id===$address->pivot->id )
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="optradio" checked>Address
+                                                            {{$i}}</label>
+									                    <div class="row">
+                                                            {{--<div class="form-group col-md-6">
+                                                                <label for="fullname_invoice" class="form-label">Full Name</label>
+                                                                <input type="text" name="fullname_invoice"
+                                                                       placeholder="{{$user->firstname}} {{$user->lastname}}"
+                                                                       id="fullname_invoice" class="form-control">
+                                                            </div>--}}
+                                                            <div class="form-group col-md-6">
+                                                                <label for="emailaddress_invoice" class="form-label">Email Address</label>
+                                                                <input type="text" name="emailaddress_invoice"
+                                                                       placeholder="{{$user->email}}"
+                                                                       id="emailaddress_invoice" class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="street_invoice" class="form-label">Street</label>
+                                                                <input type="text" name="street_invoice"
+                                                                       placeholder="{{$address->street}} {{$address->streetnumber}}
+                                                                       {{$address->boxnumber}}"
+                                                                       id="street_invoice" class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="city_invoice" class="form-label">City</label>
+                                                                <input type="text" name="city_invoice" placeholder="{{$city->city}}"
+                                                                       id="city_invoice"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="zip_invoice" class="form-label">ZIP</label>
+                                                                <input type="text" name="zip_invoice" placeholder="{{$city->postalcode}}"
+                                                                       id="zip_invoice"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="state_invoice" class="form-label">State</label>
+                                                                <input type="text" name="state_invoice" placeholder="{{$region->region}}"
+                                                                       id="state_invoice" class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="country_invoice" class="form-label">Country</label>
+                                                                <input type="text" name="country_invoice" placeholder="{{$country->country}}"
+                                                                       id="country_invoice" class="form-control">
+                                                            </div>
+
+									                    </div>
+                                                    </div>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                        <div class="form-group col-12 mt-3">
+                                            <div class="custom-control custom-checkbox">
+                                                <input id="show-shipping-address" type="checkbox" name="clothes-brand" class="custom-control-input">
+                                                <label for="show-shipping-address" data-toggle="collapse" data-target="#shippingAddress"  aria-controls="shippingAddress" class="custom-control-label align-middle">Use a different shipping address</label>
+                                            </div>
+                                        </div>
 									<!-- /Invoice Address-->
 								</div>
 								<!-- Shipping Address-->
@@ -196,7 +227,9 @@
 									</div>
 									<!-- /Shipping Address-->
 								</div>
-								<div class="mb-5 d-flex justify-content-between flex-column flex-lg-row"><a href="shoppingcart.blade.php" class="btn btn-link text-muted"> <i class="fa fa-angle-left mr-2"></i>Back </a>
+								<div class="mb-5 d-flex justify-content-between flex-column flex-lg-row"><a
+                                        href="{{route('cart.index')}}" class="btn btn-link text-muted"> <i class="fa fa-angle-left
+                                        mr-2"></i>Back </a>
 									<a href="checkout2.blade.php" class="btn btn-pink">Choose delivery method<i class="fa fa-angle-right ml-2"></i></a>
 								</div>
 							</div>
@@ -210,10 +243,12 @@
 							<div class="block-body bg-light pt-1">
 								<p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
 								<ul class="order-summary mb-0 list-unstyled">
-									<li class="order-summary-item"><span>Order Subtotal </span><span>€390.00</span></li>
-									<li class="order-summary-item"><span>Shipping and handling</span><span>€10.00</span></li>
-									<li class="order-summary-item"><span>Tax</span><span>€0.00</span></li>
-									<li class="order-summary-item border-0"><span>Total</span><strong class="order-summary-total">€400.00</strong></li>
+                                    <li class="order-summary-item">
+                                        <span>Order Subtotal</span><span>{{Cart::subtotal()}}</span></li>
+                                    <li class="order-summary-item"><span>Shipping and handling</span><span>€10.00</span></li>
+                                    <li class="order-summary-item"><span>Tax</span><span>{{Cart::tax()}}</span></li>
+                                    <li class="order-summary-item border-0"><span>Total</span><strong
+                                            class="order-summary-total">{{Cart::total()}}</strong></li>
 								</ul>
 							</div>
 						</div>
