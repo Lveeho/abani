@@ -66,7 +66,7 @@
                                                         <strong>{{$item->name}}</strong>
                                                     </a>
                                                     <br>
-                                                    <span class="text-muted text-sm">Color: Green</span>
+                                                    <span class="text-muted text-sm">Color:{{$item->options->color}}</span>
 												</div>
 											</div>
 										</div>
@@ -77,9 +77,10 @@
 														<div class="col-6 d-md-none text-muted text-left">Price per
 														                                             item</div>
 														<div class="col-6 col-md-12 text-right
-														text-center">{{$item->price}}</div>
+														text-center">€{{$item->price}}</div>
 													</div>
 												</div>
+
 												<div class="col-md-4">
 													<div class="row align-items-center">
 														<div class="d-md-none col-6 col-sm-9 text-muted text-left">Quantity</div>
@@ -87,7 +88,7 @@
 															<div class="d-flex align-items-center">
                                                                 <div class="input-group input-number-group">
                                                                     <input class="input-number swatch" type="number"
-                                                                           value="1" min="0" max="10">
+                                                                           value="{{$item->qty}}" min="0" max="10">
                                                                 </div>
 															</div>
 														</div>
@@ -95,8 +96,13 @@
 												</div>
 												<div class="col-md-3">
 													<div class="row">
-														<div class="col-6 d-md-none text-muted text-left">Total price </div>
-														<div class="col-6 col-md-12 text-right text-center">€260.00</div>
+														<div class="col-6 d-md-none text-muted text-left">
+                                                            @php($q=(int) $item->qty)
+                                                            @php($p=(int)$item->price)
+                                                            @php($calc=$q*$p)
+                                                        </div>
+														<div class="col-6 col-md-12 text-right
+														text-center">€{{$calc}}</div>
 													</div>
 												</div>
 												<div class="col-2 d-none d-md-block text-center p-0">
@@ -134,8 +140,10 @@
 						</div>
 						<div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a
                             href="{{route('face')}}" class="btn btn-link text-muted"><i
-								class="fa fa-chevron-left"></i> Continue Shopping</a><a href="checkout1.blade.php"
-						                                                                class="btn btn-pink">Proceed to checkout <i class="fa fa-chevron-right"></i>                                                     </a></div>
+								class="fa fa-chevron-left"></i> Continue Shopping</a>
+                            <a href="{{route('checkout.step1')}}" class="btn btn-pink">Proceed to checkout <i class="fa
+                            fa-chevron-right"></i>
+                            </a></div>
 					</div>
 					<div class="col-lg-4">
 						<div class="block mb-5">

@@ -18,7 +18,7 @@
                     <p>{{Cart::instance('wishlist')->count()}} item(s) in Wishlist</p>
                 @else
                     <p>No items in wishlist</p>
-                    @endif</p>
+                    @endif
 				<div class="row mt-3">
                     @foreach(Cart::instance('wishlist')->content() as $item)
 					<div class="col-6 col-md-3 pb-lg-5  pb-3">
@@ -34,14 +34,12 @@
                                          alt="Card image cap">
                                 @endif
 								<div class="middle d-flex ">
-									<a href="#" class="btn btn-add flex-fill" role="button" >
-										<div class="text-uppercase text-white pr-3">
-											<i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
-										</div>
-									</a>
-									<a href="details.blade.php" class="btn btn-look flex-fill" role="button">
-										<i class="text-white fas fa-search py-2 px-2"></i>
-									</a>
+                                    <a href="{{route('details',$item->id)}}" class="btn btn-look
+												flex-fill"
+                                       role="button">
+                                        <i class="text-white fas fa-search py-2 px-2"></i>
+                                    </a>
+
 								</div>
                                 <form action="{{route('wishlist.destroy',$item->rowId)}}" method="POST">
                                     {{csrf_field()}}
@@ -54,10 +52,10 @@
                                         </span>
                                     </button>
                                 </form>
-
 							</div>
 							<div class="card-body">
-								<p class="text-dark card-text text-center">Product<br><span>{{$item->price}} </span>
+								<p class="text-dark card-text text-center">{{$item->name}}<br><span>€{{$item->price}}
+                                    </span>
                                 </p>
 							</div>
 						</div>

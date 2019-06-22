@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{asset('scss/_customstyles.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900&amp;subset=latin-ext" rel="stylesheet">
@@ -63,25 +62,24 @@
 
             <a href="{{route('cart.index')}}" class="btn btn-nav" role="button">
                 <i class="fas fa-shopping-bag"></i>
+                @if(Cart::instance('default')->count()>0)
                 <span class="badge badge-info">
-                    @if(Cart::instance('default')->count()>0)
                     <span>
                         {{Cart::instance('default')->count()}}
                     </span>
-                        @endif
                 </span>
-
+                @endif
             </a>
 
             <a href="{{url('wishlist')}}" class="btn btn-nav" role="button">
                 <i class="fab fa-gratipay"></i>
+                @if(Cart::instance('wishlist')->count()>0)
                 <span class="badge badge-info">
-                    @if(Cart::instance('wishlist')->count()>0)
                         <span>
                             {{Cart::instance('wishlist')->count()}}
                         </span>
-                    @endif
                 </span>
+                @endif
             </a>
         </div>
 

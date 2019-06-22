@@ -13,7 +13,7 @@
             <div id="collapseOne" class="panel-collapse collapse show" role="tabpanel"
                  aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <div class="panel-group" id="accordion1" role="tablist"
+                    {{--<div class="panel-group" id="accordion1" role="tablist"
                          aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne1">
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
 
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne2">
@@ -231,7 +231,7 @@
                         </div>
                         @php($categories=\App\Category::all())
                         @foreach($categories as $category)
-                            <div id="collapseOne2" class="panel-collapse collapse show"
+                            <div id="collapseOne2" class="panel-collapse collapse in"
                                  role="tabpanel" aria-labelledby="headingOne2">
                                 <div class="panel-body">
                                     <div class="panel-group" id="accordion3" role="tablist"
@@ -251,7 +251,7 @@
                                                 </h4>
                                             </div>
                                             <div id="collapseOne21{{$category->id}}"
-                                                 class="panel-collapse collapse show"
+                                                 class="panel-collapse collapse in"
                                                  role="tabpanel"
                                                  aria-labelledby="headingOne21{{$category->id}}">
                                                 <div class="panel-body">

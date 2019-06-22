@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 	<div class="container-fluid">
 		<section id="BCproducts" class="row BC">
 			<div class="col-lg-12 col-md-10 offset-md-1">
@@ -152,55 +153,86 @@
 
 							<h3 class="text-dark pt-1 pb-3"> Product code: <strong>{{$product->code}}</strong> </h3>
 						</div>
+                        <form action="{{route('cart.store')}}" method="POST" id="formquantity">
+                            @csrf
 						<div id="selectordetails" class="row">
-							<div class="col-lg-6">
-								<div class="d-flex py-4">
-									<form>
-										<p class="control-label requiredStar text-dark"> Color</p>
-										<div class="mt-4 mt-lg-0">
-											<ul class="list-inline mb-0 colours-wrapper">
-                                                @foreach($product->colors as $color)
-												<li class="list-inline-item">
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="color" style="color: {{$color->color}}">
-                                                            <i class="fas fa-circle"></i></span>
-                                                    </label>
-												</li>
-                                                    @endforeach
-											</ul>
-										</div>
-									</form>
+
+							<div class="col-lg-4">
+								<div class="py-4">
+                                    <p class="control-label requiredStar text-dark"> Color</p>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mt-4 mt-lg-0">
+                                                <ul class="list-inline mb-0 colours-wrapper">
+                                                    <li class="list-inline-item">
+                                                        @foreach($product->colors as $color)
+                                                            <label class="form-check">
+                                                                <input class="form-check-input" type="radio" name="color">
+                                                                <span class="color bg-light" style="color: {{$color->color}}">
+                                                                    <i class="fas fa-circle"></i>
+                                                                </span>
+
+                                                            </label>
+                                                        @endforeach
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-8">
 								<div class="py-4">
 									<p class="control-label requiredStar text-dark"> Quantity</p>
 									<div class="input-group input-number-group">
-										<input class="input-number swatch" type="number" value="1" min="0" max="10">
+
+                                            <input class="input-number swatch" name="quantity" type="number" value="1"
+                                                                                                     min="0"
+                                                   max="10">
+
 									</div>
 								</div>
 							
 							</div>
+                            <div class="col-lg-6">
+                                @if(session()->has('success_message_wishlist'))
+                                    <div class="alert alert-success">
+                                        {{session()->get('success_message_wishlist')}}
+                                    </div>
+                                @endif
+                            </div>
 							<div class="col-lg-12 p-0 py-lg-3 mt-3">
 								<div class="d-flex pr-3">
-                                    <form action="{{route('cart.store')}}" method="POST" >
-                                        @csrf
+
                                         <input type="hidden" name="id" value="{{$product->id}}">
                                         <input type="hidden" name="name" value="{{$product->name}}">
                                         <input type="hidden" name="price" value="{{$product->price}}">
+                                        <input type="hidden" name="color" value="white">
                                         <input type="hidden" name="mainpicture"
                                                value="{{$product->mainpicture}}">
-                                        <button type="submit" class="btn-pink btn-add text-uppercase
+                                        @if($totalStock<1)
+                                            <button type="submit" class="btn-add text-uppercase
+                                                     text-white pr-3" disabled style="background-color: darkgray">
+                                                <i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
+                                            </button>
+                                        @else
+                                            <button type="submit" id="submitBtn" class="btn-pink btn-add text-uppercase
                                                      text-white pr-3">
-                                            <i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
-                                        </button>
+                                                <i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
+                                            </button>
+                                        @endif
+
                                     </form>
+
                                     <form action="{{route('wishlist.store')}}" method="POST" >
                                         @csrf
                                         <input type="hidden" name="id" value="{{$product->id}}">
                                         <input type="hidden" name="name" value="{{$product->name}}">
                                         <input type="hidden" name="price" value="{{$product->price}}">
+                                        <input type="hidden" name="quantity" value="1">
                                         <input type="hidden" name="mainpicture"
                                                value="{{$product->mainpicture}}">
                                         <button type="submit" class="btn-pink d-flex
@@ -208,6 +240,7 @@
                                             <i class="text-white far fa-heart py-2 px-2"></i>
                                         </button>
                                     </form>
+
 
 								</div>
 							</div>

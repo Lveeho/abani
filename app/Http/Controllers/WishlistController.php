@@ -37,10 +37,16 @@ class WishlistController extends Controller
     public function store(Request $request)
     {
         //
+        $duplicates=Cart::instance('wishlist')->search(function($cartItem, $rowId)use ($request){
+            return $cartItem->id===$request->id;
+        });
+        if($duplicates->isNotEmpty()){
+            return redirect()->back();
+        }
 
         Cart::instance('wishlist')->add($request->id,$request->name,1,$request->price,$request->mainpicture)->associate
         ('App\Product');
-        return redirect()->route('wishlist.index')->with('success_message','Item was added to your cart!');
+        return redirect()->back()->with('success_message_wishlist','Added to wishlist!');
 
     }
 

@@ -5,11 +5,13 @@
       <change afterPath="$PROJECT_DIR$/../laravelstripe/.idea/laravel-plugin.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laravelstripe/.idea/php.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laravelstripe/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/checkout1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/checkout1.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/face.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/face.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shoppingcart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shoppingcart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wishlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wishlist.blade.php" afterDir="false" />
@@ -57,7 +59,7 @@
           <entry key="js" value="19" />
           <entry key="json" value="3" />
           <entry key="log" value="8" />
-          <entry key="php" value="610" />
+          <entry key="php" value="629" />
           <entry key="png" value="4" />
           <entry key="scss" value="5" />
           <entry key="test" value="1" />
@@ -67,14 +69,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="5" />
-          <entry key="Blade" value="212" />
+          <entry key="Blade" value="223" />
           <entry key="CSS" value="20" />
           <entry key="HTML" value="3" />
           <entry key="Image" value="9" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="19" />
           <entry key="Log" value="8" />
-          <entry key="PHP" value="398" />
+          <entry key="PHP" value="406" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SCSS" value="5" />
         </counts>
@@ -86,17 +88,17 @@
           <entry key="env" value="31" />
           <entry key="html" value="12" />
           <entry key="js" value="3" />
-          <entry key="php" value="47127" />
+          <entry key="php" value="48658" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="31" />
-          <entry key="Blade" value="18838" />
+          <entry key="Blade" value="19885" />
           <entry key="CSS" value="109" />
           <entry key="HTML" value="12" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="28289" />
+          <entry key="PHP" value="28773" />
           <entry key="PLAIN_TEXT" value="32" />
         </counts>
       </usages-collector>
@@ -107,67 +109,75 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/face.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="77" column="55" lean-forward="true" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/details.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="197" column="43" lean-forward="true" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="43" />
+            <state relative-caret-position="263">
+              <caret line="91" column="51" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
               <folding>
-                <element signature="e#4388#4886#0#HTML" />
-                <element signature="e#4935#5433#0#HTML" />
-                <element signature="e#5482#5980#0#HTML" />
-                <element signature="e#6029#6527#0#HTML" />
-                <element signature="e#8437#8455#0#HTML" expanded="true" />
-                <element signature="e#8739#8764#0#HTML" expanded="true" />
-                <element signature="e#9089#9115#0#HTML" expanded="true" />
-                <element signature="e#10115#10160#0#HTML" expanded="true" />
-                <element signature="e#0#28677#0#Blade" />
-                <element signature="e#12602#28664#0#Blade" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/shoppingcart.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="110" column="59" lean-forward="true" selection-start-line="102" selection-start-column="52" selection-end-line="110" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/wishlist.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-              <folding>
-                <element signature="e#2466#2559#0#HTML" expanded="true" />
-                <element signature="e#2382#10920#0#Blade" />
-                <element signature="e#2852#3913#0#HTML" />
-                <element signature="e#3919#4980#0#HTML" />
-                <element signature="e#4986#6047#0#HTML" />
-                <element signature="e#6053#7114#0#HTML" />
-                <element signature="e#7120#8181#0#HTML" />
-                <element signature="e#8187#9248#0#HTML" />
-                <element signature="e#9254#10315#0#HTML" />
+                <element signature="e#3641#3673#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/checkout1.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="671">
+              <caret line="107" column="52" lean-forward="true" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
+              <folding>
+                <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#873#924#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/checkout2.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WishlistController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="75" column="76" lean-forward="true" selection-start-line="75" selection-start-column="76" selection-end-line="75" selection-end-column="76" />
+              <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+              <folding>
+                <element signature="e#40#81#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+              <folding>
+                <element signature="e#40#81#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -183,7 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>when you buy</find>
       <find>app</find>
       <find>header/bl</find>
       <find>918</find>
@@ -210,7 +219,10 @@
       <find>details.</find>
       <find>img</find>
       <find>color</find>
+      <find>message</find>
       <find>add to cart</find>
+      <find>far fa-heart</find>
+      <find>proceed</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -226,7 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Producttypes.php" />
         <option value="$PROJECT_DIR$/app/Brand.php" />
         <option value="$PROJECT_DIR$/public/css/custom.css" />
         <option value="$PROJECT_DIR$/database/seeds/LotTableSeeder.php" />
@@ -255,7 +266,6 @@
         <option value="$PROJECT_DIR$/resources/views/includes/categoryleft.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/lips.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/eyes.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/category.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/PhotoFactory.php" />
         <option value="$PROJECT_DIR$/database/seeds/PhotoTableSeeder.php" />
@@ -268,15 +278,17 @@
         <option value="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" />
         <option value="$PROJECT_DIR$/public/scss/_customstyles.css" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/includes/category.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" />
+        <option value="$PROJECT_DIR$/resources/views/wishlist.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/face.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/shoppingcart.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FrontController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/details.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FrontController.php" />
+        <option value="$PROJECT_DIR$/resources/views/shoppingcart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/wishlist.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/checkout1.blade.php" />
       </list>
     </option>
   </component>
@@ -588,12 +600,12 @@
       <workItem from="1560955688399" duration="10945000" />
       <workItem from="1561014557992" duration="25274000" />
       <workItem from="1561067281211" duration="1396000" />
-      <workItem from="1561100877152" duration="18458000" />
+      <workItem from="1561100877152" duration="33517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271516000" />
+    <option name="totallyTimeSpent" value="286575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -652,23 +664,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_06_083202_create_photos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -872,65 +867,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/category.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="357" column="35" lean-forward="true" selection-start-line="357" selection-start-column="35" selection-end-line="357" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-731">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="50" column="3" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/face.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="77" column="55" lean-forward="true" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WishlistController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="e#40#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="24" column="92" lean-forward="true" selection-start-line="24" selection-start-column="92" selection-end-line="24" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -941,54 +881,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/details.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="257" column="47" lean-forward="true" selection-start-line="257" selection-start-column="47" selection-end-line="257" selection-end-column="47" />
+          <folding>
+            <element signature="e#781#16341#0#Blade" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WishlistController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding>
+            <element signature="e#40#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cart.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8">
-          <caret line="197" column="43" lean-forward="true" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="43" />
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/wishlist.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Http/Request.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/details.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="234" column="32" selection-start-line="234" selection-start-column="32" selection-end-line="234" selection-end-column="32" />
           <folding>
-            <element signature="e#4388#4886#0#HTML" />
-            <element signature="e#4935#5433#0#HTML" />
-            <element signature="e#5482#5980#0#HTML" />
-            <element signature="e#6029#6527#0#HTML" />
-            <element signature="e#8437#8455#0#HTML" expanded="true" />
-            <element signature="e#8739#8764#0#HTML" expanded="true" />
-            <element signature="e#9089#9115#0#HTML" expanded="true" />
-            <element signature="e#10115#10160#0#HTML" expanded="true" />
-            <element signature="e#0#28677#0#Blade" />
-            <element signature="e#12602#28664#0#Blade" />
+            <element signature="e#9488#10645#0#HTML" />
+            <element signature="e#10526#10558#0#HTML" expanded="true" />
+            <element signature="e#10476#11136#0#HTML" />
+            <element signature="e#11165#11541#0#HTML" />
+            <element signature="e#12760#12794#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/face.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="91" column="51" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
+          <folding>
+            <element signature="e#3641#3673#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding>
+            <element signature="e#40#81#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/shoppingcart.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="110" column="59" lean-forward="true" selection-start-line="102" selection-start-column="52" selection-end-line="110" selection-end-column="59" />
+        <state>
+          <caret selection-end-line="1" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/wishlist.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#2466#2559#0#HTML" expanded="true" />
-            <element signature="e#2382#10920#0#Blade" />
-            <element signature="e#2852#3913#0#HTML" />
-            <element signature="e#3919#4980#0#HTML" />
-            <element signature="e#4986#6047#0#HTML" />
-            <element signature="e#6053#7114#0#HTML" />
-            <element signature="e#7120#8181#0#HTML" />
-            <element signature="e#8187#9248#0#HTML" />
-            <element signature="e#9254#10315#0#HTML" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="75" column="76" lean-forward="true" selection-start-line="75" selection-start-column="76" selection-end-line="75" selection-end-column="76" />
+        <state relative-caret-position="198">
+          <caret line="181" column="31" lean-forward="true" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/checkout2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/checkout1.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="107" column="52" lean-forward="true" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#873#924#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

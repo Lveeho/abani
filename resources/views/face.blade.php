@@ -63,31 +63,33 @@
                                                      alt="Card image cap">
                                               @endif
 											<div class="middle d-flex ">
-                                                <form action="{{route('cart.store')}}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{$product->id}}">
-                                                    <input type="hidden" name="name" value="{{$product->name}}">
-                                                    <input type="hidden" name="price" value="{{$product->price}}">
-                                                    <input type="hidden" name="mainpicture"
-                                                           value="{{$product->mainpicture}}">
-                                                    <button type="submit" class="btn btn-add flex-fill text-uppercase
-                                                     text-white pr-3">
-                                                        <i class="fas fa-shopping-bag px-2 py-2"></i> add to cart
-                                                    </button>
+                                                @foreach($product->colors as $color)
 
-                                                </form>
+                                                    <span class="color" style="color: {{$color->color}}">
+                                                        <i class="fas fa-circle"></i></span>
+
+                                                @endforeach
 												<a href="{{route('details',$product->id)}}" class="btn btn-look
 												flex-fill"
                                                    role="button">
 													<i class="text-white fas fa-search py-2 px-2"></i>
 												</a>
 											</div>
-											<div class="btn hartpos rotate" role="button">
-												<span class="fa-stack fa-1x">
-													<i class="fas fa-circle fa-stack-2x text-white"></i>
-													<i class="fas fa-heart fa-stack-1x"></i>
-												</span>
-											</div>
+                                            <form action="{{route('wishlist.store')}}" method="POST" >
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$product->id}}">
+                                                <input type="hidden" name="name" value="{{$product->name}}">
+                                                <input type="hidden" name="price" value="{{$product->price}}">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="hidden" name="mainpicture"
+                                                       value="{{$product->mainpicture}}">
+                                                <button type="submit" class="btn hartpos rotate">
+                                                    <span class="fa-stack fa-1x">
+                                                        <i class="fas fa-circle fa-stack-2x text-white"></i>
+                                                        <i class="fas fa-heart fa-stack-1x"></i>
+                                                    </span>
+                                                </button>
+                                            </form>
 										</div>
 										<div class="card-body">
 											<p class="text-dark card-text

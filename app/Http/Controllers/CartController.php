@@ -44,7 +44,9 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message','Item is already in your cart!');
         }
 
-        Cart::add($request->id,$request->name,1,$request->price,$request->mainpicture)->associate('App\Product');
+        Cart::add($request->id,$request->name,$request->quantity,$request->price,$request->mainpicture,
+            ['color' => $request->color])->associate('App\Product');
+
         return redirect()->route('cart.index')->with('success_message','Item was added to your cart!');
 
     }

@@ -19,16 +19,16 @@ class FrontController extends Controller
     }
 
     public function face(){
-        $products=Product::where('is_active',1)->where('category_id',1)->paginate(9);
+        $products=Product::where('is_active',1)->where('category_id',1)->has('colors')->paginate(9);
         return view('face',compact('products'));
     }
 
     public function lips(){
-        $products=Product::where('is_active',1)->where('category_id',2)->paginate(9);
+        $products=Product::where('is_active',1)->where('category_id',2)->has('colors')->paginate(9);
         return view('face',compact('products'));
     }
     public function eyes(){
-        $products=Product::where('is_active',1)->where('category_id',3)->paginate(9);
+        $products=Product::where('is_active',1)->where('category_id',3)->has('colors')->paginate(9);
         return view('face',compact('products'));
     }
 
@@ -46,6 +46,10 @@ class FrontController extends Controller
 
     public function login(){
         return view('initialize');
+    }
+
+    public function checkout(){
+        return view('checkout1');
     }
 
 
