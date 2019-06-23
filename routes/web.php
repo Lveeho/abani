@@ -13,9 +13,12 @@
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/backend','HomeController@showClientDashboard');
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::post('/cart','CartController@store')->name('cart.store');
 Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
@@ -27,17 +30,24 @@ Route::get('empty',function(){
     Cart::instance('wishlist')->destroy();
 });
 
+
 Route::get('/index','FrontController@index')->name('index');
-Route::get('/login','FrontController@index')->name('login');
 Route::get('/face','FrontController@face')->name('face');
 Route::get('/lips','FrontController@lips')->name('lips');
 Route::get('/eyes','FrontController@eyes')->name('eyes');
 Route::get('/{id}','FrontController@details')->name('details');
-Route::get('/checkout/step1','FrontController@checkout')->name('checkout.step1');
+Route::post('/checkout1','CheckoutController@storeStep1')->name('checkout.store1');
+Route::post('/checkout2','CheckoutController@storeStep2')->name('checkout.store2');
+Route::get('/checkout/step1','CheckoutController@checkout1')->name('checkout.step1');
+Route::get('/checkout/step2','CheckoutController@checkout2')->name('checkout.step2');
+Route::get('/checkout/step3','CheckoutController@checkout3')->name('checkout.step3');
 
 
 
-Auth::routes();
+
+
+
+
 Route::group(['middleware'=>'admin'],function() {
     Route::resource('/admin/users', 'UserController');
     Route::resource('/admin/users/address','AddressController');

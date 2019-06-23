@@ -48,11 +48,16 @@
             </form>
             @if (Route::has('login'))
                 <div class="top-right links">
+
                     @auth
-                        <a href="{{ url('admin/users') }}">Home</a>
+                        @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
+                        <a href="{{ url('admin/users') }}"> <i class="fas fa-cog"></i></a>
+                            @else
+                            <a href="{{ url('backend') }}"> <i class="fas fa-cog"></i></a>
+                            @endif
                     @else
                         <a href="{{ route('login') }}" class="btn btn-nav ml-xl-5">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-cog text-muted"></i>
                         </a>
 
                     @endauth

@@ -48,15 +48,11 @@ class FrontController extends Controller
     public function login(){
         return view('initialize');
     }
-
-    public function checkout(){
-        $user=Auth::user();
-        $addresses=$user->addresses;
-        $cities=$user->cities;
-        $regions=$user->regions;
-        $countries=$user->countries;
-        return view('checkout1',compact('addresses','cities','regions','countries','user'));
+    public function register(){
+        return view ('signup');
     }
+
+
 
 
 

@@ -85,12 +85,7 @@
 													<div class="row align-items-center">
 														<div class="d-md-none col-6 col-sm-9 text-muted text-left">Quantity</div>
 														<div class="col-6 col-sm-3 col-md-12">
-															<div class="d-flex align-items-center">
-                                                                <div class="input-group input-number-group">
-                                                                    <input class="input-number swatch" type="number"
-                                                                           value="{{$item->qty}}" min="0" max="10">
-                                                                </div>
-															</div>
+                                                            <p>{{$item->qty}}</p>
 														</div>
 													</div>
 												</div>
@@ -145,24 +140,8 @@
                             fa-chevron-right"></i>
                             </a></div>
 					</div>
-					<div class="col-lg-4">
-						<div class="block mb-5">
-							<div class="block-header">
-								<h3 class="text-uppercase mb-0"><strong>Order Summary</strong></h3>
-							</div>
-							<div class="block-body bg-light pt-1">
-								<p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
-								<ul class="order-summary mb-0 list-unstyled">
-									<li class="order-summary-item">
-                                        <span>Order Subtotal</span><span>{{Cart::subtotal()}}</span></li>
-									<li class="order-summary-item"><span>Shipping and handling</span><span>€10.00</span></li>
-									<li class="order-summary-item"><span>Tax</span><span>{{Cart::tax()}}</span></li>
-									<li class="order-summary-item border-0"><span>Total</span><strong
-                                            class="order-summary-total">{{Cart::total()}}</strong></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+                    @include('includes.ordersummary')
+
 				</div>
 			</div>
 			
