@@ -9,6 +9,7 @@
 						<li class="breadcrumb-item active" aria-current="page">Makeup</li>
 					</ol>
 				</nav>
+
 			</div>
 		</section>
 		<section id="categoryleft" class=" row justify-content-between mb-5">
