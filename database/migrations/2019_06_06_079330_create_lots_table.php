@@ -14,7 +14,7 @@ class CreateLotsTable extends Migration
     public function up()
     {
         Schema::create('lots', function (Blueprint $table) {
-            $table->bigIncrements('id')->index();
+            $table->Increments('id')->index();
             $table->integer('code')->nullable();
             $table->date('manufactured')->nullable();
             $table->date('expiry')->nullable();
