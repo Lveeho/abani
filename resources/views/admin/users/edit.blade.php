@@ -41,6 +41,11 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="form-group mt-4 d-flex justify-content-center pt-1">
+                    {!!Form::submit('Alle wijzigingen opslaan',
+                    ['class'=>'btn btn-primary btn-block'])!!}
+                </div>
+                {!! Form::close() !!}
             </div>
         </div>
         <div class="col-lg-6 my-4">
@@ -218,11 +223,7 @@
     <div class="row">
         <hr>
         <div class="col-lg-6">
-            <div class="form-group mt-4 d-flex justify-content-center pt-1">
-                {!!Form::submit('Alle wijzigingen opslaan',
-                ['class'=>'btn btn-primary btn-block'])!!}
-            </div>
-            {!! Form::close() !!}
+
         </div>
         <div class="col-lg-6">
             {!! Form::open(['method'=>'DELETE', 'action'=>['UserController@destroy',$user->id]])

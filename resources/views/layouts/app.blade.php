@@ -53,7 +53,7 @@
                         @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                         <a href="{{ url('admin/users') }}"> <i class="fas fa-cog"></i></a>
                             @else
-                            <a href="{{ url('backend') }}"> <i class="fas fa-cog"></i></a>
+                            <a href="{{ url('client/user') }}"> <i class="fas fa-cog"></i></a>
                             @endif
                     @else
                         <a href="{{ route('login') }}" class="btn btn-nav ml-xl-5">

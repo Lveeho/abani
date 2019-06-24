@@ -66,54 +66,49 @@
 						<div class="mb-5">
 							<div id="accordion" role="tablist">
 								<div class="block mb-3">
-									<div id="headingOne" role="tab" class="block-header"><strong><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="accordion-link">Credit Card</a></strong></div>
-									<div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show">
-										<div class="block-body">
-											<form action="#">
-												<div class="row">
-													<div class="form-group col-md-6">
-														<label for="card-name" class="form-label">Name on Card</label>
-														<input type="text" name="card-name" placeholder="Name on card" id="card-name" class="form-control">
-													</div>
-													<div class="form-group col-md-6">
-														<label for="card-number" class="form-label">Card Number</label>
-														<input type="text" name="card-number" placeholder="Card number" id="card-number" class="form-control">
-													</div>
-													<div class="form-group col-md-4">
-														<label for="expiry-date" class="form-label">Expiry Date</label>
-														<input type="text" name="expiry-date" placeholder="MM/YY" id="expiry-date" class="form-control">
-													</div>
-													<div class="form-group col-md-4">
-														<label for="cvv" class="form-label">CVC/CVV</label>
-														<input type="text" name="cvv" placeholder="123" id="cvv" class="form-control">
-													</div>
-													<div class="form-group col-md-4">
-														<label for="zip" class="form-label">ZIP</label>
-														<input type="text" name="zip" placeholder="123" id="zip" class="form-control">
-													</div>
-												</div>
-											</form>
-										</div>
-									</div>
+                                    <div class="block-body">
+                                        @php($amount=Gloudemans\Shoppingcart\Facades\Cart::total())
+                                        @php($newAmount=(int)str_replace('.','',$amount))
+
+
+
+                                        <form id="checkout-form" action="/aankopen" method="POST">
+                                            {{csrf_field()}}
+                                            <input type="hidden" name="stripeToken" id="stripeToken">
+                                            <input type="hidden" name="stripeEmail" id="stripeEmail">
+                                            <button type="submit" id="buy"> Betaal </button>
+
+                                            <script src="https://checkout.stripe.com/checkout.js"></script>
+                                            <script>
+                                                var amountVar ='<?php echo $newAmount; ?>';
+                                                let stripe=StripeCheckout.configure({
+                                                    key:"{{config('services.stripe.key')}}",
+                                                    image:"https://stripe.com/img/documentation/checkout/marketplace.png",
+                                                    locale:"auto",
+                                                    token:function(token){
+                                                        document.querySelector('#stripeEmail').value=token.email;
+                                                        document.querySelector('#stripeToken').value=token.id;
+                                                        document.querySelector('#checkout-form').submit();
+
+                                                    }
+                                                });
+                                                document.querySelector('#buy').addEventListener('click',function(e){
+                                                    stripe.open({
+                                                        name:'mijn product',
+                                                        description: 'details over product',
+                                                        zipCode:false /*niet nodig in EU*/,
+                                                        amount: amountVar,
+                                                        currency:'eur',
+                                                    });
+                                                    e.preventDefault();
+                                                });
+                                            </script>
+
+                                        </form>
+                                    </div>
+
 								</div>
-								<div class="block mb-3">
-									<div id="headingTwo" role="tab" class="block-header"><strong><a data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="accordion-link collapsed">Paypal</a></strong></div>
-									<div id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion" class="collapse">
-										<div class="block-body py-5 d-flex align-items-center">
-											<input type="radio" name="shippping" id="payment-method-1">
-											<label for="payment-method-1" class="ml-3"><strong class="d-block text-uppercase mb-2"> Pay with PayPal</strong><span class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.                                          </span></label>
-										</div>
-									</div>
-								</div>
-								<div class="block mb-3">
-									<div id="headingThree" role="tab" class="block-header"><strong><a data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="accordion-link collapsed">Pay on delivery</a></strong></div>
-									<div id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" class="collapse">
-										<div class="block-body py-5 d-flex align-items-center">
-											<input type="radio" name="shippping" id="payment-method-2">
-											<label for="payment-method-2" class="ml-3"><strong class="d-block text-uppercase mb-2"> Pay on delivery</strong><span class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.    </span></label>
-										</div>
-									</div>
-								</div>
+
 							</div>
 						</div>
 						<div class="mb-5 d-flex justify-content-between flex-column flex-lg-row"><a

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Charge;
+use Stripe\Customer;
+use Stripe\Stripe;
 
 class CheckoutController extends Controller
 {
@@ -66,6 +70,30 @@ class CheckoutController extends Controller
             return redirect()->route('checkout.step2')->with('checkout_message2','Select delivery method!');
         }
         return view('checkout3');
+    }
+    public function buy(){
+
+
+
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $customer=Customer::create([
+            'email'=>request('stripeEmail'),
+            'source'=>request('stripeToken'),
+        ]); /*hierdoor online wegschrijven*/
+
+        Charge::create([
+            'customer'=>$customer->id,
+            'amount'=>(int)str_replace('.','',Cart::total()), /*totaal*/
+            'currency'=>'eur',
+        ]);
+
+        Cart::destroy();
+        /*hier nog wegschrijven naar DB*/
+
+
+
+        return view('checkout4');
     }
 
     /**

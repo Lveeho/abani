@@ -67,8 +67,10 @@
                 <li class="nav-item nav-profile">
                     <div class="nav-link">
                         <div class="user-wrapper">
+                            <i class="far fa-user-circle fa-3x"></i>
                             <div class="text-wrapper">
-                                <p class="profile-name">
+
+                                <p class="profile-name mt-3">
                                     @if(!empty($auth->firstname))
                                         {{ucfirst($auth->firstname)}} {{ucfirst
                                                         ($auth->lastname)}}
@@ -86,24 +88,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                    <a class="nav-link" href="{{route('user.edit',\Illuminate\Support\Facades\Auth::user()->id)}}">
                         <span class="menu-title mr-3">Mijn gegevens</span>
-                        <i class="fas fa-chevron-down ml-4"></i>
                     </a>
-                    <div class="collapse" id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('users.index')}}">
-                                    <span class="menu-title">mijn adressen</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('users.create')}}">
-                                    <span class="menu-title">Gebruiker aanmaken</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
             </ul>
         </nav>

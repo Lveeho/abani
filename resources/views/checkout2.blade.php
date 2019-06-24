@@ -72,18 +72,7 @@
 										<input type="radio" name="shipping" id="option0">
 										<label for="option0" class="ml-3"><strong class="d-block text-uppercase mb-2">Usps next day</strong><span class="text-muted text-sm">Get it right on next day - fastest option possible.</span></label>
 									</div>
-									<div class="form-group col-md-6 d-flex align-items-center">
-										<input type="radio" name="shipping" id="option1">
-										<label for="option1" class="ml-3"><strong class="d-block text-uppercase mb-2">Usps next day</strong><span class="text-muted text-sm">Get it right on next day - fastest option possible.</span></label>
-									</div>
-									<div class="form-group col-md-6 d-flex align-items-center">
-										<input type="radio" name="shipping" id="option2">
-										<label for="option2" class="ml-3"><strong class="d-block text-uppercase mb-2">Usps next day</strong><span class="text-muted text-sm">Get it right on next day - fastest option possible.</span></label>
-									</div>
-									<div class="form-group col-md-6 d-flex align-items-center">
-										<input type="radio" name="shipping" id="option3">
-										<label for="option3" class="ml-3"><strong class="d-block text-uppercase mb-2">Usps next day</strong><span class="text-muted text-sm">Get it right on next day - fastest option possible.</span></label>
-									</div>
+
 								</div>
 							</div>
 							<div class="mb-5 d-flex justify-content-between flex-column flex-lg-row"><a
@@ -96,11 +85,15 @@
 
                             </div>
                         </form>
+
                         @if(session()->has('checkout_message2'))
                             <div class="alert alert-primary">
                                 {{session()->get('checkout_message2')}}
                             </div>
                         @endif
+
+
+
 						</div>
 					</div>
                     @include('includes.ordersummary')
