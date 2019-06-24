@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\Region;
+use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Stripe\Charge;
 use Stripe\Customer;
 use Stripe\Stripe;
@@ -17,6 +21,7 @@ class CheckoutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function checkout1(){
+
         if($user=Auth::user()){
             $addresses=$user->addresses;
             $cities=$user->cities;
@@ -82,16 +87,26 @@ class CheckoutController extends Controller
             'source'=>request('stripeToken'),
         ]); /*hierdoor online wegschrijven*/
 
-        Charge::create([
+        $charge=Charge::create([
             'customer'=>$customer->id,
             'amount'=>(int)str_replace('.','',Cart::total()), /*totaal*/
             'currency'=>'eur',
         ]);
 
+
+
+        if($charge->status==='succeeded'){
+            $order=new Order();
+            $order->user_id=Auth::user()->id;
+            $order->total=Cart::total();
+            $order->purchase_date=Carbon::now();
+            $order->token=$charge->id;
+            $order->save();
+
+        }
+
         Cart::destroy();
         /*hier nog wegschrijven naar DB*/
-
-
 
         return view('checkout4');
     }

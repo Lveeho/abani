@@ -49,6 +49,8 @@
             </div>
         </div>
         <div class="col-lg-6 my-4">
+            {!! Form::model($user,['method'=>'PATCH','action'=>['UserController@update',$user->id]])
+     !!}
             <div class="row">
             @php($i=0)
                @foreach($allData as $oneData)
@@ -143,6 +145,9 @@
                     @endforeach
                             </div>
                         <div class="col-lg-2">
+                            {!! Form::button('<i class="far fa-save"></i>',
+                    ['class'=>'btn create text-primary btn-sm ','type'=>'submit']) !!}
+                            {!! Form::close() !!}
                             {!! Form::open(['method'=>'DELETE', 'action'=>['AddressController@destroy',
                             $address->getOriginal('pivot_id')]])!!}
                             {!! Form::button('<i class="fas fa-trash-alt"></i>',['class'=>'btn create text-danger btn-sm',
@@ -212,8 +217,9 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        {!! Form::button('<i class="fas fa-plus-circle"></i>',
-                        ['class'=>'btn create text-primary btn-sm','type'=>'submit']) !!}
+                        {!! Form::button('<i class="far fa-save"></i>',
+                     ['class'=>'btn create text-primary btn-sm ','type'=>'submit']) !!}
+                        {!! Form::close() !!}
                     </div>
                     {!! Form::close() !!}
                 </div>

@@ -72,7 +72,7 @@
 
 
 
-                                        <form id="checkout-form" action="/aankopen" method="POST">
+                                        <form id="checkout-form" action="{{route('buy')}}" method="POST">
                                             {{csrf_field()}}
                                             <input type="hidden" name="stripeToken" id="stripeToken">
                                             <input type="hidden" name="stripeEmail" id="stripeEmail">
@@ -113,9 +113,7 @@
 						</div>
 						<div class="mb-5 d-flex justify-content-between flex-column flex-lg-row"><a
                             href="{{route('checkout.step2')}}" class="btn btn-link text-muted"> <i
-								class="fa fa-angle-left mr-2"></i>Back to the delivery method</a><a
-                                href="checkout4.blade.php" class="btn btn-pink">Continue to order review<i
-								class="fa fa-angle-right ml-2"></i></a></div>
+								class="fa fa-angle-left mr-2"></i>Back to the delivery method</a></div>
 					</div>
 					<div class="col-lg-4">
 						<div class="block mb-5">

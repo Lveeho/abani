@@ -43,7 +43,7 @@ Route::get('/checkout/step1','CheckoutController@checkout1')->name('checkout.ste
 Route::get('/checkout/step2','CheckoutController@checkout2')->name('checkout.step2');
 Route::get('/checkout/step3','CheckoutController@checkout3')->name('checkout.step3');
 Route::get('/checkout/step4','CheckoutController@checkout4')->name('checkout.step4');
-Route::post('/aankopen','CheckoutController@buy');
+Route::post('/aankopen','CheckoutController@buy')->name('buy');
 
 Route::resource('/client/user','ClientController');
 

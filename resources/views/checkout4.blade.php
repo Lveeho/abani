@@ -205,8 +205,9 @@
 						
 						<div class="mb-5 d-flex justify-content-between flex-column flex-lg-row"><a
                             href="checkout3.blade.php" class="btn btn-link text-muted"> <i
-								class="fa fa-angle-left mr-2"></i>Back to the delivery method</a><a
-                                href="checkout5.blade.php" class="btn btn-pink">Place an order<i
+								class="fa fa-angle-left mr-2"></i>Back to the delivery method</a>
+                            <a
+                                href="{{route('face')}}" class="btn btn-pink">Continue Shopping<i
 								class="fa fa-angle-right ml-2"></i></a></div>
 					</div>
 					<div class="col-lg-4">

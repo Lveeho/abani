@@ -33,7 +33,8 @@ class UserController extends Controller
     {
         //
         $roles=Role::pluck('name','id')->all();
-        return view('admin.users.create',compact('roles'));
+        $countries=Country::pluck('country','id')->all();
+        return view('admin.users.create',compact('roles','countries'));
 
     }
 

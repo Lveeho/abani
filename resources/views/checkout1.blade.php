@@ -88,6 +88,7 @@
 								<div class="block-header">
 									<h3 class="text-uppercase mb-0">Invoice address</h3>
 								</div>
+
 								<div class="block-body">
                                     @foreach($addresses as $address)
                                         @foreach($cities as $city)

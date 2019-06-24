@@ -67,6 +67,9 @@
                                                     </a>
                                                     <br>
                                                     <span class="text-muted text-sm">Color:{{$item->options->color}}</span>
+                                                    @php(session(['color'=>$item->options->color]))
+
+
 												</div>
 											</div>
 										</div>
@@ -116,6 +119,7 @@
 									</div>
 								</div>
                                 @endforeach
+
 
 							</div>
                             @if(count($errors)>0)

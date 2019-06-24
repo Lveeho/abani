@@ -30,6 +30,7 @@
         <div class="col-lg-6">
             <div class="form-group mt-4 ">
                 {!! Form::label('country','Land:') !!}
+                {!! Form::select('country',$producttypes,null,['class'=>'form-control']) !!}
                 {!! Form::text('country',null,['class'=>'form-control','required'])
                  !!}
             </div>
