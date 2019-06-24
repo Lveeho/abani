@@ -2,100 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc3a0935-dc91-49cd-8d01-0acb06b0914a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/bestsellers1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/bestsellers2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/bestsellers3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/brands.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/dealoftheday.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/dealoftheday1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/dealoftheday2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/detailpicbody.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/eyesbigpic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/facegrid1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/facegrid2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/facegrid3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/facegrid4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/featuredfooter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/grid1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/grid2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/grid3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/grid4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/lipsbigpic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newsandblogs1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newsandblogs2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newtrending1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newtrending2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newtrending3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newtrending4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/newtrending5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/populars1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/populars2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/populars3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/productbigpic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/productbigpic2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/salebigpic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/signin2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/slide1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/slide2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/slide3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/toprated1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/toprated2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/toprated3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/_customstyles-dist-dist.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/_customstyles-dist.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/_customstyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/_mixins.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/materialdesignicons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mixins/_background-variant.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mixins/_gradients.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mixins/_list-group.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/mixins/_size.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/utilities/_align.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/misc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/off-canvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/vendor.bundle.base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/scss/_customstyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/404.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/categories.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout1.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout3.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout4.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout5.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/eyes.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/forgotpass.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/brands.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/form_error.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/initialize.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/lips.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/products.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sale.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shoppingcart.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/signup.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/wishlist.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laravelstripe/.idea/laravel-plugin.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laravelstripe/.idea/php.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laravelstripe/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/face.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/face.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +83,7 @@
           <entry key="env" value="43" />
           <entry key="html" value="12" />
           <entry key="js" value="3" />
-          <entry key="md" value="100" />
+          <entry key="md" value="102" />
           <entry key="php" value="54159" />
         </counts>
       </usages-collector>
@@ -184,7 +94,7 @@
           <entry key="CSS" value="109" />
           <entry key="HTML" value="12" />
           <entry key="JavaScript" value="3" />
-          <entry key="Markdown" value="100" />
+          <entry key="Markdown" value="102" />
           <entry key="PHP" value="31057" />
           <entry key="PLAIN_TEXT" value="32" />
         </counts>
@@ -215,8 +125,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="34">
-                <caret line="2" column="188" selection-start-line="2" selection-start-column="188" selection-end-line="2" selection-end-column="188" />
+              <first_editor relative-caret-position="68">
+                <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -712,12 +622,12 @@
       <workItem from="1561314311098" duration="15676000" />
       <workItem from="1561359870755" duration="22022000" />
       <workItem from="1561383918197" duration="1620000" />
-      <workItem from="1561385590023" duration="38000" />
+      <workItem from="1561385590023" duration="635000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329086000" />
+    <option name="totallyTimeSpent" value="329683000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -1099,8 +1009,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="34">
-            <caret line="2" column="188" selection-start-line="2" selection-start-column="188" selection-end-line="2" selection-end-column="188" />
+          <first_editor relative-caret-position="68">
+            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           </first_editor>
           <second_editor />
         </state>
