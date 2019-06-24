@@ -49,7 +49,7 @@ class ClientController extends Controller
         /*adressen*/
         /*bestaat country al?*/
         $randomArray=array();
-        $countryExists=Country::where('country',$request->country)->first();
+        $countryExists=Country::where('id',$request->country)->first();
         /*ja->geef id*/
         if(!empty($countryExists)){
             array_push($randomArray,$countryExists->id);
@@ -61,7 +61,7 @@ class ClientController extends Controller
             array_push($randomArray,$newCountry->id);
         }
         /*bestaal region al?*/
-        $regionExists=Region::where('region',$request->region)
+        $regionExists=Region::where('id',$request->region)
             ->where('code',$request->code)
             ->first();
         /*ja->geef id*/
@@ -145,7 +145,9 @@ class ClientController extends Controller
             ->with('regions')
             ->with('countries')
             ->get();
-        return view('clients.client.edit',compact('user','allData'));
+        $countries=Country::pluck('country','id');
+        $regions=Region::pluck('region','id');
+        return view('clients.client.edit',compact('user','allData','countries','regions'));
     }
 
     /**
@@ -174,7 +176,7 @@ class ClientController extends Controller
                 $p++;
                 /*bestaat country al?*/
                 $randomArray=array();
-                $countryExists=Country::where('country',$request->country[$p])->first();
+                $countryExists=Country::where('id',$request->country[$p])->first();
                 /*ja->geef id*/
                 if(!empty($countryExists)){
                     array_push($randomArray,$countryExists->id);
@@ -186,7 +188,7 @@ class ClientController extends Controller
                     array_push($randomArray,$newCountry->id);
                 }
                 /*bestaal region al?*/
-                $regionExists=Region::where('region',$request->region[$p])
+                $regionExists=Region::where('id',$request->region[$p])
                     ->where('code',$request->code[$p])
                     ->first();
                 /*ja->geef id*/

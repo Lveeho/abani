@@ -41,12 +41,6 @@
                             @endforeach
                         @endforeach
                     </td>
-                    <td>
-                        @foreach($user->roles as $role)
-                            {{$role->name}}
-                            {{$role->pivot->created_at}}
-                        @endforeach
-                    </td>
                 </tr>
 
 

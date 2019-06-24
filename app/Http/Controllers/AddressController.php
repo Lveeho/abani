@@ -43,7 +43,7 @@ class AddressController extends Controller
         $user=$request->user;
         /*bestaat country al?*/
         $randomArray=array();
-        $countryExists=Country::where('country',$request->country)->first();
+        $countryExists=Country::where('id',$request->country)->first();
         /*ja->geef id*/
         if(!empty($countryExists)){
             array_push($randomArray,$countryExists->id);
@@ -55,7 +55,7 @@ class AddressController extends Controller
             array_push($randomArray,$newCountry->id);
         }
         /*bestaal region al?*/
-        $regionExists=Region::where('region',$request->region)
+        $regionExists=Region::where('id',$request->region)
             ->where('code',$request->code)
             ->first();
         /*ja->geef id*/

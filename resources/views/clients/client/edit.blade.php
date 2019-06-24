@@ -26,7 +26,7 @@
                 {!! Form::password('password',['class'=>'form-control']) !!}
             </div>
             <div class="form-group mt-4 d-flex justify-content-center pt-1">
-                {!!Form::submit('Alle wijzigingen opslaan',
+                {!!Form::submit('Opslaan',
                 ['class'=>'btn btn-primary btn-block'])!!}
             </div>
             {!! Form::close() !!}
@@ -64,7 +64,8 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             {!! Form::label('country','Land:') !!}
-                                                            {!! Form::text('country[]',$country->country,['class'=>'form-control'])
+                                                            {!! Form::select('country[]',$countries,$country->id,
+                                                            ['class'=>'form-control'])
                                                              !!}
                                                         </div>
                                                         <div class="form-group">
@@ -73,7 +74,8 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             {!! Form::label('region','Regio:') !!}
-                                                            {!! Form::text('region[]',$region->region,['class'=>'form-control'])
+                                                            {!! Form::select('region[]',$regions,$region->id,
+                                                            ['class'=>'form-control'])
                                                              !!}
                                                         </div>
                                                         <div class="form-group col-md-3">
@@ -158,12 +160,12 @@
                             </div>
                             <div class="form-group mt-4 ">
                                 {!! Form::label('country','Land:') !!}
-                                {!! Form::text('country',null,['class'=>'form-control','required'])
+                                {!! Form::select('country',$countries,null,['class'=>'form-control','required'])
                                  !!}
                             </div>
                             <div class="form-group mt-4 ">
                                 {!! Form::label('region','Regio:') !!}
-                                {!! Form::text('region',null,['class'=>'form-control','required'])
+                                {!! Form::select('region',$regions,null,['class'=>'form-control','required'])
                                  !!}
                             </div>
                             <div class="form-group mt-4 ">

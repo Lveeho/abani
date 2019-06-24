@@ -33,8 +33,9 @@ class UserController extends Controller
     {
         //
         $roles=Role::pluck('name','id')->all();
-        $countries=Country::pluck('country','id')->all();
-        return view('admin.users.create',compact('roles','countries'));
+        $countries=Country::pluck('country','id');
+        $regions=Region::pluck('region','id')->prepend('Kies optie');
+        return view('admin.users.create',compact('roles','countries','regions'));
 
     }
 
@@ -65,7 +66,7 @@ class UserController extends Controller
 
             /*bestaat country al?*/
             $randomArray=array();
-            $countryExists=Country::where('country',$request->country)->first();
+            $countryExists=Country::where('id',$request->country)->first();
             /*ja->geef id*/
             if(!empty($countryExists)){
                 array_push($randomArray,$countryExists->id);
@@ -77,7 +78,7 @@ class UserController extends Controller
                 array_push($randomArray,$newCountry->id);
             }
             /*bestaal region al?*/
-            $regionExists=Region::where('region',$request->region)
+            $regionExists=Region::where('id',$request->region)
                 ->where('code',$request->code)
                 ->first();
             /*ja->geef id*/
@@ -164,7 +165,9 @@ class UserController extends Controller
             ->with('countries')
             ->get();
         $roles=Role::pluck('name','id')->all();
-        return view('admin.users.edit',compact('user','roles','allData'));
+        $countries=Country::pluck('country','id');
+        $regions=Region::pluck('region','id')->prepend('Kies optie');
+        return view('admin.users.edit',compact('user','roles','allData','countries','regions'));
     }
 
     /**
@@ -195,12 +198,13 @@ class UserController extends Controller
         $user->update($input);
 
         /*adressen wijzigen*/
+        if(!empty($request->city_ids)){
             $p=-1;
-        foreach ($request->city_ids as $city_id) {
-            $p++;
+            foreach ($request->city_ids as $city_id) {
+                $p++;
                 /*bestaat country al?*/
                 $randomArray=array();
-                $countryExists=Country::where('country',$request->country[$p])->first();
+                $countryExists=Country::where('id',$request->country[$p])->first();
                 /*ja->geef id*/
                 if(!empty($countryExists)){
                     array_push($randomArray,$countryExists->id);
@@ -212,7 +216,7 @@ class UserController extends Controller
                     array_push($randomArray,$newCountry->id);
                 }
                 /*bestaal region al?*/
-                $regionExists=Region::where('region',$request->region[$p])
+                $regionExists=Region::where('id',$request->region[$p])
                     ->where('code',$request->code[$p])
                     ->first();
                 /*ja->geef id*/
@@ -227,51 +231,53 @@ class UserController extends Controller
                     array_push($randomArray,$newRegion->id);
                 }
                 /*bestaal city al?*/
-            $cityExists=City::where('city',$request->city[$p])
-                ->where('postalcode',$request->postalcode[$p])
-                ->first();
-            /*ja->geef id*/
-            if(!empty($cityExists)){
-                array_push($randomArray,$cityExists->id);
-            }else{
-                /*nee -> maak nieuwe en geef id*/
-                $newCity=new City();
-                $newCity->city=$request->city[$p];
-                $newCity->postalcode=$request->postalcode[$p];
-                $newCity->save();
-                array_push($randomArray,$newCity->id);
-            }
+                $cityExists=City::where('city',$request->city[$p])
+                    ->where('postalcode',$request->postalcode[$p])
+                    ->first();
+                /*ja->geef id*/
+                if(!empty($cityExists)){
+                    array_push($randomArray,$cityExists->id);
+                }else{
+                    /*nee -> maak nieuwe en geef id*/
+                    $newCity=new City();
+                    $newCity->city=$request->city[$p];
+                    $newCity->postalcode=$request->postalcode[$p];
+                    $newCity->save();
+                    array_push($randomArray,$newCity->id);
+                }
                 /*bestaal address al?*/
-            $addressExists=Address::where('street',$request->street[$p])
-                ->where('streetnumber',$request->streetnumber[$p])
-                ->where('boxnumber',$request->boxnumber[$p])
-                ->first();
-            /*ja->geef id*/
-            if(!empty($addressExists)){
-                array_push($randomArray,$addressExists->id);
-            }else{
-                /*nee -> maak nieuwe en geef id*/
-                $newAddress=new Address();
-                $newAddress->street=$request->street[$p];
-                $newAddress->streetnumber=$request->streetnumber[$p];
-                $newAddress->boxnumber=$request->boxnumber[$p];
-                $newAddress->save();
-                array_push($randomArray,$newAddress->id);
-            }
-            /*verander huidige row in tussentabel naar deze uit array*/
-            $pivotTable=DB::table('address_city_region_country_user')
-                ->where('user_id',$id)
-                ->where('address_id',$request->address_ids[$p])
-                ->where('city_id',$request->city_ids[$p])
-                ->where('region_id',$request->region_ids[$p])
-                ->where('country_id',$request->country_ids[$p])
-                ->value('id');
+                $addressExists=Address::where('street',$request->street[$p])
+                    ->where('streetnumber',$request->streetnumber[$p])
+                    ->where('boxnumber',$request->boxnumber[$p])
+                    ->first();
+                /*ja->geef id*/
+                if(!empty($addressExists)){
+                    array_push($randomArray,$addressExists->id);
+                }else{
+                    /*nee -> maak nieuwe en geef id*/
+                    $newAddress=new Address();
+                    $newAddress->street=$request->street[$p];
+                    $newAddress->streetnumber=$request->streetnumber[$p];
+                    $newAddress->boxnumber=$request->boxnumber[$p];
+                    $newAddress->save();
+                    array_push($randomArray,$newAddress->id);
+                }
+                /*verander huidige row in tussentabel naar deze uit array*/
+                $pivotTable=DB::table('address_city_region_country_user')
+                    ->where('user_id',$id)
+                    ->where('address_id',$request->address_ids[$p])
+                    ->where('city_id',$request->city_ids[$p])
+                    ->where('region_id',$request->region_ids[$p])
+                    ->where('country_id',$request->country_ids[$p])
+                    ->value('id');
 
-            DB::table('address_city_region_country_user')
-                ->where('id',$pivotTable)
-                ->update(['user_id'=>$id,'country_id'=>$randomArray[0],'region_id'=>$randomArray[1],
-                    'city_id'=>$randomArray[2],'address_id'=>$randomArray[3]]);
-            /* Nadeel:op deze manier blijven waarden die niet gebruikt worden bestaan*/
+                DB::table('address_city_region_country_user')
+                    ->where('id',$pivotTable)
+                    ->update(['user_id'=>$id,'country_id'=>$randomArray[0],'region_id'=>$randomArray[1],
+                        'city_id'=>$randomArray[2],'address_id'=>$randomArray[3]]);
+                /* Nadeel:op deze manier blijven waarden die niet gebruikt worden bestaan*/
+        }
+
 
         }
 
