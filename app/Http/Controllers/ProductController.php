@@ -145,6 +145,7 @@ class ProductController extends Controller
     {
         //
         $product=Product::findOrFail($id);
+        $product->update($request->all());
         $picture=$request->file('mainpicture');
         if(!empty($picture)){
             $extension=$picture->getClientOriginalExtension();
