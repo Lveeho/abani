@@ -60,10 +60,10 @@ class ProductController extends Controller
         if((isset($request->color_id))and empty($request->price)){
             DB::table('color_product')
                 ->insert(['color_id'=>$request->color_id,'product_id'=>$request->product_id,
-                    'lot_id'=>$request->lot_id]);
+                    'lot_id'=>$request->lot_id,'stock'=>$request->stock]);
             $subProduct=DB::table('color_product')
                 ->orderBy('id','DESC')->first();
-            $subPicture=$request->file('name');
+            $subPicture=$request->file('photoname');
             if(!empty($subPicture)){
                 $extension=$subPicture->getClientOriginalExtension();
                 Storage::disk('productcolors')->put($subPicture->getFilename().'.'.$extension,File::get($subPicture));
@@ -72,6 +72,8 @@ class ProductController extends Controller
                 $newImage->product_color_id=$subProduct->id;
                 $newImage->description=$request->description;
                 $newImage->save();
+
+
             }
 
             return redirect()->back();
@@ -160,12 +162,13 @@ class ProductController extends Controller
             $product->mainpicture=$picture->getFilename().'.'.$extension;
             $product->is_active=$request->is_active;
             $product->update();
+
         }
         if(isset($request->color_id)){
             DB::table('color_product')
                 ->where('id',$request->pivot_id)
-                ->update(['color_id'=>$request->color_id,'lot_id'=>$request->lot_id]);
-            $picture=$request->file('name');
+                ->update(['color_id'=>$request->color_id,'lot_id'=>$request->lot_id,'stock'=>$request->stock]);
+            $picture=$request->file('photoname');
             if(!empty($picture)) {
                 $extension = $picture->getClientOriginalExtension();
                 Storage::disk('productcolors')->put($picture->getFilename() . '.' . $extension, File::get($picture));
@@ -174,6 +177,7 @@ class ProductController extends Controller
                 $newImage->product_color_id = $request->pivot_id;
                 $newImage->description=$request->description;
                 $newImage->save();
+
             }
 
         }

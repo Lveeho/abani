@@ -42,6 +42,8 @@ class FrontController extends Controller
 
 
 
+
+
         return view('details',compact('product','photoIds'));
     }
 

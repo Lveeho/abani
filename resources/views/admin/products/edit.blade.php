@@ -108,9 +108,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="form-group">
-                                                        {!! Form::label('name','Foto:') !!}
-                                                        {!! Form::file('name',null,['class'=>'form-control']) !!}
+                                                    <div class="form-group col-md-6">
+                                                        {!! Form::label('photoname','Foto:') !!}
+                                                        {!! Form::file('photoname',null,['class'=>'form-control']) !!}
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        {!! Form::label('stock','Stock:') !!}
+                                                        {!! Form::text('stock',$color->pivot->stock,
+                                                        ['class'=>'form-control']) !!}
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
@@ -209,9 +214,13 @@
                       </div>
                   </div>
                   <div class="form-row">
-                      <div class="form-group col-md-11">
-                          {!! Form::label('name','Foto:') !!}
-                          {!! Form::file('name',null,['class'=>'form-control']) !!}
+                      <div class="form-group col-md-6">
+                          {!! Form::label('photoname','Foto:') !!}
+                          {!! Form::file('photoname',null,['class'=>'form-control']) !!}
+                      </div>
+                      <div class="form-group col-md-5">
+                          {!! Form::label('stock','Stock:') !!}
+                          {!! Form::text('stock',null,['class'=>'form-control']) !!}
                       </div>
                       <div class="form-group col-md-1 d-flex justify-content-center">
                           {!! Form::button('<i class="far fa-save"></i>',

@@ -41,7 +41,9 @@
                                         <div class="item carousel-item active">
                                             <div class="row">
                                                 @foreach($photoIds as $photoId)
-                                                    @php($uniquePhotos=\App\Photo::where('id',$photoId->id)->get())
+
+                                                    @php($uniquePhotos=\App\Photo::where('product_color_id',
+                                                    $photoId->id)->get())
                                                         @foreach($uniquePhotos as $uniquePhoto)
                                                             <div class="col-3">
                                                                 <div class="thumb-wrapper">
