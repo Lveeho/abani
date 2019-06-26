@@ -30,11 +30,11 @@
         <div class="col-lg-6">
             <div class="form-group mt-4 ">
                 {!! Form::label('country','Land:') !!}
-                {!! Form::select('country',$countries,null,['class'=>'form-control','required']) !!}
+                {!! Form::text('country',null,['class'=>'form-control','required']) !!}
             </div>
             <div class="form-group mt-4 ">
                 {!! Form::label('region','Regio:') !!}
-                {!! Form::select('region',$regions,null,['class'=>'form-control','required'])
+                {!! Form::text('region',null,['class'=>'form-control','required'])
                  !!}
             </div>
             <div class="form-group mt-4 ">

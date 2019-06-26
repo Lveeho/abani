@@ -66,7 +66,7 @@ class UserController extends Controller
 
             /*bestaat country al?*/
             $randomArray=array();
-            $countryExists=Country::where('id',$request->country)->first();
+            $countryExists=Country::where('country',$request->country)->first();
             /*ja->geef id*/
             if(!empty($countryExists)){
                 array_push($randomArray,$countryExists->id);
@@ -78,7 +78,7 @@ class UserController extends Controller
                 array_push($randomArray,$newCountry->id);
             }
             /*bestaal region al?*/
-            $regionExists=Region::where('id',$request->region)
+            $regionExists=Region::where('region',$request->region)
                 ->where('code',$request->code)
                 ->first();
             /*ja->geef id*/
@@ -204,7 +204,7 @@ class UserController extends Controller
                 $p++;
                 /*bestaat country al?*/
                 $randomArray=array();
-                $countryExists=Country::where('id',$request->country[$p])->first();
+                $countryExists=Country::where('country',$request->country[$p])->first();
                 /*ja->geef id*/
                 if(!empty($countryExists)){
                     array_push($randomArray,$countryExists->id);
@@ -216,7 +216,7 @@ class UserController extends Controller
                     array_push($randomArray,$newCountry->id);
                 }
                 /*bestaal region al?*/
-                $regionExists=Region::where('id',$request->region[$p])
+                $regionExists=Region::where('region',$request->region[$p])
                     ->where('code',$request->code[$p])
                     ->first();
                 /*ja->geef id*/
